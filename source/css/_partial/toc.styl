@@ -1,6 +1,10 @@
 $padding-pace = 16px
 
 #toc-wrap
+  position: fixed
+  top: 200px
+  left: 50px
+
   .toc-title
     padding-left: 6px
     color: card-title-color
@@ -27,11 +31,15 @@ $padding-pace = 16px
     color: card-text-color
 
     &:hover
-      color: card-highlight-color;
-      background-color: main-background-color;
+      color: card-highlight-color
+      background-color: main-background-color
 
       &:before
-        background-color: card-highlight-color;
+        background-color: card-highlight-color
+
+  .toc-link-active
+    color: card-highlight-color
+    background-color: main-background-color
 
 for num in 3...5
   $index = num - 3
