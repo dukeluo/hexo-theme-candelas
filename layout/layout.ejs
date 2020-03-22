@@ -6,6 +6,9 @@
     <div id="wrap">
       <%- partial('_partial/header') %>
       <div class="outer">
+        <% if (is_post()){ %>
+          <%- partial('_partial/toc', {post: page}) %>
+        <% } %>
         <section id="main"><%- body %></section>
         <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
           <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
