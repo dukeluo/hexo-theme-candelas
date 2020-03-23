@@ -41,6 +41,23 @@
   <% } %>
 </article>
 
+<% if (!index && post.comments){ %>
+  <% if (theme.duoshuo.on) { %>
+    <%- partial('comments/duoshuo', {
+      key: post.path,
+      title: post.title,
+      url: config.url + url_for(post.path),
+    }) %>
+  <% } else if (theme.changyan.on) { %>
+    <%- partial('comments/changyan') %>
+  <% } else if (theme.gitalk.on) { %>
+    <%- partial('comments/gitalk') %>
+  <% } else if (config.disqus_shortname) { %>
+    <%- partial('comments/disqus', {
+      shortname: config.disqus_shortname
+    }) %>
+  <% } %>
+
 <% if (!index && post.comments && config.disqus_shortname){ %>
 <section id="comments">
   <div id="disqus_thread">
