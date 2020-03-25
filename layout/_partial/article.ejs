@@ -38,13 +38,7 @@
                 </a>
             <% } %>
 
-            <% if (!index && theme.gitalk.enable && post.comments){ %>
-            <% _partial('comment', {
-                key: post.slug,
-                title: post.title,
-                url: config.url + url_for(post.path)
-            }) %>
-            <% } %>
+
 
             <%- partial('post/tag') %>
         </footer>
