@@ -1,13 +1,8 @@
 {
   "name": "hexo-theme-candelas",
-  "description": "next generation hexo theme of landscape",
+  "version": "1.0",
   "private": true,
-  "scripts": {
-    "lint": "npx ejslint layout/*.ejs",
-    "precommit": "npm run lint"
-  },
   "devDependencies": {
-    "ejs-lint": "^1.0.1",
-    "pre-commit": "^1.2.2"
+    "ejs-lint": "^1.0.1"
   }
 }

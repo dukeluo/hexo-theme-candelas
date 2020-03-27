@@ -31,9 +31,8 @@
 .article-title
   text-decoration: none
   font-size: 2em
-  font-weight: bold
-  color: color-default
   line-height: line-height-title
+  // margin-bottom: 1rem
   transition: color 0.2s
   a&:hover
     color: color-link
@@ -41,18 +40,16 @@
 .article-entry
   @extend $base-style
   clearfix()
-  color: color-default
+  color: card-text-color
   padding: 0 article-padding
   p, table
     line-height: line-height
     margin: line-height 0
   h1, h2, h3, h4, h5, h6
-    font-weight: bold
-  h1, h2, h3, h4, h5, h6
     line-height: line-height-title
     margin: line-height-title 0
   a
-    color: color-link
+    color: card-highlight-color
     text-decoration: none
     &:hover
       text-decoration: underline
