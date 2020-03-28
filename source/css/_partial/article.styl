@@ -29,13 +29,13 @@
   padding: article-padding article-padding 0
 
 .article-title
+  color: card-title-color
   text-decoration: none
   font-size: 2em
   line-height: line-height-title
-  // margin-bottom: 1rem
   transition: color 0.2s
   a&:hover
-    color: color-link
+    color: card-highlight-color
 
 .article-entry
   @extend $base-style
@@ -69,10 +69,10 @@
     border-spacing: 0
   th
     font-weight: bold
-    border-bottom: 3px solid color-border
+    border-bottom: 3px solid grey-color
     padding-bottom: 0.5em
   td
-    border-bottom: 1px solid color-border
+    border-bottom: 1px solid grey-color
     padding: 10px 0
   blockquote
     font-family: font-serif
@@ -123,21 +123,18 @@
   line-height: 1em
   padding: 6px 15px
   border-radius: 15px
-  background: color-background
-  color: color-grey
-  text-shadow: 0 1px #fff
-  text-decoration: none
+  background: grey-color
+  color: lighten(card-text-color, 40%)
   &:hover
-    background: color-link
+    background: card-highlight-color
     color: #fff
     text-decoration: none
-    text-shadow: 0 1px darken(color-link, 20%)
 
 .article-footer
   clearfix()
   font-size: 0.85em
   line-height: line-height
-  border-top: 1px solid color-border
+  border-top: 1px solid grey-color
   padding-top: line-height
   margin: 0 article-padding article-padding
   a
@@ -179,7 +176,7 @@
       absolute-center(8px)
       content: ""
       border-radius: 50%
-      background: color-border
+      background: grey-color
       box-shadow: 0 1px 2px #fff
 
 .article-nav-link-wrap
@@ -211,7 +208,7 @@
 .article-nav-caption
   text-transform: uppercase
   letter-spacing: 2px
-  color: color-border
+  color: grey-color
   line-height: 1em
   font-weight: bold
   #article-nav-newer &
@@ -242,7 +239,7 @@
   padding: 0 15px
   color: color-default
   outline: none
-  border: 1px solid color-border
+  border: 1px solid grey-color
   border-radius: 3px 3px 0 0
   height: 36px
   line-height: 36px

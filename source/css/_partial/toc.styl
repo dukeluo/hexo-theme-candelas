@@ -6,13 +6,12 @@ $padding-pace = 16px
   left: 50px
 
   .toc-title
-    padding-left: 6px
-    color: card-title-color
+    @extend $block-caption
 
   .toc
+    @extend $block
     padding: 10px
     position: relative
-    background-color: card-background-color
 
     &:before
       content: ''
