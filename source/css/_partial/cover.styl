@@ -1,23 +1,20 @@
 #banner
   width: 100%
   height: banner-height
-  background: url(banner-url) center #000
+  background: url(banner-url) center main-background-color
   background-size: cover
   z-index: -1
 
 #header-title
   text-align: center
-  height: logo-size
   position: absolute
   top: 50%
   left: 0
   margin-top: logo-size * -0.5
 
-
 $logo-text
-  text-decoration: none
-  color: #fff
-  font-weight: 300
+  color: card-background-color
+  font-weight: 600
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
 
 #logo
@@ -29,8 +26,6 @@ $logo-text
 #subtitle
   @extend $logo-text
   font-size: subtitle-size
-  line-height: subtitle-size
+  line-height: subtitle-size * 1.1
   letter-spacing: 1px
-
-#subtitle-wrap
-  margin-top: subtitle-size
+  margin-top: 10px

@@ -1,32 +1,40 @@
 #header
   position: relative
-  border-bottom: 1px solid color-border
 
 .index-header
-  height: index-header-height
+  height: banner-height
 
 .post-header
-  height: post-header-height
+  height: 60px
+
+  a
+    color: card-title-color
 
 #header-inner
+  box-sizing: border-box
+  width: 100%
+  padding: 0 1rem
   position: absolute
   top: 0
 
-#main-nav
-  float: left
-  margin-left: -15px
+.post-header
+  #header-inner
+    position: fixed
+    z-index: 21
+    background-color: main-background-color
+    box-shadow: 0 0.4rem 0.4rem -0.4rem rgba(0,0,0,0.2)
+    opacity: 0.9
+    backdrop-filter: blur(20px)
 
 $nav-link
   float: left
-  color: #fff
-  opacity: 0.6
+  color: card-background-color
   text-decoration: none
-  text-shadow: 0 1px rgba(0, 0, 0, 0.2)
   transition: opacity 0.2s
   display: block
   padding: 20px 15px
   &:hover
-    opacity: 1
+    opacity: 0.6
 
 .nav-icon
   @extend $nav-link
@@ -39,9 +47,12 @@ $nav-link
   position: relative
   cursor: pointer
 
+#main-nav
+  float: left
+
 .main-nav-link
   @extend $nav-link
-  font-weight: 300
+  font-weight: bold
   letter-spacing: 1px
   @media mq-mobile
     display: none
@@ -74,7 +85,7 @@ $nav-link
   transition: 0.4s ease-out
   &.on
     opacity: 1
-    right: 0
+    right: 1rem
   @media mq-mobile
     width: 100%
     right: -100%
