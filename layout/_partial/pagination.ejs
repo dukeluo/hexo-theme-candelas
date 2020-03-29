@@ -1,0 +1,8 @@
+<nav class="pagination" role="navigation">
+  <% if (page.prev){ %>
+    <a class="newer-posts" href="<%- config.root %><%- page.prev_link %>">← NEWER POSTS</a>
+  <% } %>
+  <% if (page.next){ %>
+    <a class="older-posts" href="<%- config.root %><%- page.next_link %>">OLDER POSTS →</a>
+  <% } %>
+</nav>
