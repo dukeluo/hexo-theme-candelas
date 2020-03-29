@@ -24,8 +24,10 @@
       <% } %>
     </div>
     <footer class="article-footer">
-      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" data-title="<%= post.title %>"
-        class="article-share-link"><%= __('share') %></a>
+      <% if (is_post()) { %>
+        <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" data-title="<%= post.title %>"
+          class="article-share-link"><%= __('share') %></a>
+      <% } %>
       <%- partial('post/tag') %>
     </footer>
   </div>
