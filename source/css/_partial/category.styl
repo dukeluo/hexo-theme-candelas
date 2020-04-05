@@ -1,0 +1,34 @@
+.categories-wrap
+  margin: block-margin 0
+  color: card-text-color
+
+  .categories-title
+    @extend $block-caption
+
+  .category-list
+    @extend $block
+    padding: article-padding
+    list-style-type: square
+    list-style-position: inside
+
+.category-list-item
+  margin: 0.5rem 0
+
+.category-list-link
+  color: card-text-color
+  text-decoration-color: link-color
+
+  &:hover
+    color: card-highlight-color
+    text-decoration-color: card-highlight-color
+
+.category-list-count
+  font-size: 0.8rem
+  color: link-color
+
+  &:before
+    content: " ["
+
+  &:after
+    content: "]"
+

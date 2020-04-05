@@ -1,25 +1,26 @@
+<%
+var title = page.title;
+
+if (is_archive()){
+  title = __('archive');
+
+  if (is_month()){
+    title += ': ' + page.year + '/' + page.month;
+  } else if (is_year()){
+    title += ': ' + page.year;
+  }
+} else if (is_category()){
+  title = __('category') + ': ' + page.category;
+} else if (is_tag()){
+  title = __('tag') + ': ' + page.tag;
+} else if (title === 'categories') {
+  title = __('category');
+}
+%>
+
 <head>
   <meta charset="utf-8">
   <%- partial('google-analytics') %>
-  <%
-  var title = page.title;
-
-  if (is_archive()){
-    title = __('archive');
-
-    if (is_month()){
-      title += ': ' + page.year + '/' + page.month;
-    } else if (is_year()){
-      title += ': ' + page.year;
-    }
-  } else if (is_category()){
-    title = __('category') + ': ' + page.category;
-  } else if (is_tag()){
-    title = __('tag') + ': ' + page.tag;
-  } else if (title === 'categories') {
-    title = __('category');
-  }
-  %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
