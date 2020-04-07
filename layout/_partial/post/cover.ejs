@@ -1,11 +1,5 @@
-<%
-var banners = theme.banner;
-var randomBanner = banners[Math.floor(Math.random() * banners.length)];
-var bannerStyle = "background-image: url(" + randomBanner + ");";
-%>
-
 <div id="cover">
-  <div id="banner" style="<%= bannerStyle %>"></div>
+  <div id="banner" data-banners="<%= theme.banner.join(';') %>"></div>
   <div id="header-title" class="inner">
     <h1 id="logo"><%= config.title %></h1>
     <% if (theme.subtitle){ %>
