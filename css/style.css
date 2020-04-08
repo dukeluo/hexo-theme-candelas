@@ -1389,6 +1389,15 @@ pre .javascript .function {
 .category-list-count:after {
   content: "]";
 }
+#gitalk-container .gt-comment-content {
+  background-color: #fffffe !important;
+  border-radius: 4px !important;
+}
+#gitalk-container .gt-container.gt-input-focused::after {
+  background-color: transparent !important;
+  opacity: 0 !important;
+  z-index: 0 !important;
+}
 @media screen and (min-width: 768px) {
   #sidebar {
     display: inline;
