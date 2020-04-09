@@ -7,26 +7,25 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
     - name: Checkout theme
       uses: actions/checkout@v2
       with:
         persist-credentials: false
         path: ./candelas
-    - name: Install Hexo
-      run: npm install -g hexo-cli
+    - name: Clone hexo-theme-unit-test
+      run: |
+        git clone https://github.com/hexojs/hexo-theme-unit-test.git
+        cd ./hexo-theme-unit-test
+        mkdir themes
+        npm install
     - name: Init Github pages
       run: |
         mv ./candelas/.git $GITHUB_WORKSPACE
-        hexo init ./pages
-        mv ./candelas ./pages/themes
-        cd ./pages
-        hexo config theme candelas
-        hexo clean
-        hexo generate
+        mv ./candelas ./hexo-theme-unit-test/themes
+        cd ./hexo-theme-unit-test
+        npx hexo config theme candelas
+        npx hexo clean
+        npx hexo generate
         mv ./public $GITHUB_WORKSPACE
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@3.1.5
