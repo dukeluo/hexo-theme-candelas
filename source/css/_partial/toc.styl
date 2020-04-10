@@ -1,9 +1,16 @@
 $padding-pace = 16px
 
-#toc-wrap
+#toc
+  @media mq-normal
+    column(toc-column)
+  &:after
+    content: '.'
+    visibility: hidden
+
+.toc-wrap
+  margin: block-margin 0
   position: fixed
-  top: 200px
-  left: 50px
+  width:inherit
 
   .toc-title
     @extend $block-caption
@@ -28,6 +35,9 @@ $padding-pace = 16px
     display: block
     text-decoration: none
     color: card-text-color
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
 
     &:hover
       background-color: main-background-color

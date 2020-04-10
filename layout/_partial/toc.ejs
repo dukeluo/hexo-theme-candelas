@@ -1,8 +1,10 @@
-<div id="toc-wrap">
-  <h3 class="toc-title"><%= __('toc') %></h3>
-  <%- toc(post.content, {
-    list_number: false,
-    max_depth: 4,
-    min_depth: 3
-  })%>
+<div id="toc">
+  <div class="toc-wrap">
+    <h3 class="toc-title"><%= __('toc') %></h3>
+    <%- toc(post.content, {
+      list_number: false,
+      max_depth: 4,
+      min_depth: 3
+    })%>
+  </div>
 </div>
