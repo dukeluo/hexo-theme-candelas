@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-<%- partial('_partial/head') %>
+<%- partial('commons/head') %>
 <body>
   <div id="container">
     <div id="wrap">
-      <%- partial('_partial/header') %>
+      <%- partial('commons/header') %>
       <div class="outer">
         <% if (is_post()){ %>
-          <%- partial('_partial/toc', {post: page}) %>
+          <%- partial('commons/toc', {post: page}) %>
         <% } %>
         <section id="main"><%- body %></section>
         <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
-          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+          <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
         <% } %>
       </div>
-      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+      <%- partial('commons/footer', null, {cache: !config.relative_link}) %>
     </div>
-    <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+    <%- partial('commons/mobile-nav', null, {cache: !config.relative_link}) %>
   </div>
 </body>
 </html>
