@@ -10,7 +10,7 @@
           <%- partial('commons/toc', {post: page}) %>
         <% } %>
         <section id="main"><%- body %></section>
-        <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
+        <% if (is_post() || is_home()) { %>
           <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
         <% } %>
       </div>
