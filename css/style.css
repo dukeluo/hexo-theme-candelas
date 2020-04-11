@@ -128,9 +128,9 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 .outer {
-  max-width: 1220px;
+  max-width: 2110px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 .outer:before,
 .outer:after {
@@ -143,8 +143,8 @@ body {
 .inner {
   display: inline;
   float: left;
-  width: 98.33333333333333%;
-  margin: 0 0.833333333333333%;
+  width: 98.5576923076923%;
+  margin: 0 0.721153846153846%;
 }
 .left,
 .alignleft {
@@ -183,14 +183,14 @@ body {
   #main {
     display: inline;
     float: left;
-    width: 73.33333333333333%;
-    margin: 0 0.833333333333333%;
+    width: 67.3076923076923%;
+    margin: 0 0.721153846153846%;
   }
 }
 .article-date,
 .article-category-link,
 .archive-year,
-#toc-wrap .toc-title,
+.toc-wrap .toc-title,
 .categories-wrap .categories-title,
 .widget-title {
   text-decoration: none;
@@ -203,7 +203,7 @@ body {
 }
 .article-inner,
 .archive-article-inner,
-#toc-wrap .toc,
+.toc-wrap .toc,
 .categories-wrap .category-list,
 .widget {
   background: #fffffe;
@@ -1276,16 +1276,28 @@ pre .javascript .function {
   letter-spacing: 1px;
   margin-top: 10px;
 }
-#toc-wrap {
-  position: fixed;
-  top: 200px;
-  left: 50px;
+@media screen and (min-width: 768px) {
+  #toc {
+    display: inline;
+    float: left;
+    width: 11.057692307692307%;
+    margin: 0 0.721153846153846%;
+  }
 }
-#toc-wrap .toc {
+#toc:after {
+  content: '.';
+  visibility: hidden;
+}
+.toc-wrap {
+  margin: 50px 0;
+  position: fixed;
+  width: inherit;
+}
+.toc-wrap .toc {
   padding: 10px;
   position: relative;
 }
-#toc-wrap .toc:before {
+.toc-wrap .toc:before {
   content: '';
   position: absolute;
   top: 0;
@@ -1295,20 +1307,23 @@ pre .javascript .function {
   background-color: #00473e;
   opacity: 0.2;
 }
-#toc-wrap .toc-link {
+.toc-wrap .toc-link {
   position: relative;
   display: block;
   text-decoration: none;
   color: #475d5b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-#toc-wrap .toc-link:hover {
+.toc-wrap .toc-link:hover {
   background-color: #f2f7f5;
 }
-#toc-wrap .toc-link-active {
+.toc-wrap .toc-link-active {
   color: #faae2b;
   background-color: #f2f7f5;
 }
-#toc-wrap .toc-link-active:before {
+.toc-wrap .toc-link-active:before {
   background-color: #faae2b;
 }
 .toc-level-3 .toc-link {
@@ -1408,8 +1423,8 @@ pre .javascript .function {
   #sidebar {
     display: inline;
     float: left;
-    width: 23.333333333333332%;
-    margin: 0 0.833333333333333%;
+    width: 17.307692307692307%;
+    margin: 0 0.721153846153846%;
   }
 }
 .widget-wrap {
