@@ -5,6 +5,9 @@
   <div id="container">
     <div id="wrap">
       <%- partial('commons/header') %>
+      <% if (!is_post()){ %>
+        <%- partial('commons/cover') %>
+      <% } %>
       <div class="outer">
         <% if (is_post()){ %>
           <%- partial('commons/toc', {post: page}) %>
