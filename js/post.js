@@ -23,9 +23,10 @@
   var $header = getHeader();
   var prevScrollY = $(window).scrollTop();
   var curScrollY;
-  var direction = 0;  // 0 - down, 1 - up
-  var prevDirection = 0;
+  var prevDirection;
+  var curDirection = 0;  // 0 - down, 1 - up
   var delta = 5;
+  var clickedByToc = false;
 
   function toggleHeader(direction) {
     if (direction === 0) {
@@ -36,19 +37,23 @@
   }
 
   function checkScroll(curScrollY) {
-    // console.log(prevScroll, curScroll, direction);
     if (Math.abs(curScrollY - prevScrollY) <= delta) {
       return;
     }
 
-    if (curScrollY > prevScrollY && curScrollY > $header.height()) {
-      direction = 0;
-    } else if (curScrollY < prevScrollY) {
-      direction = 1;
+    if (clickedByToc) {
+      clickedByToc = false;
+      return toggleHeader(0);
     }
-    if (direction !== prevDirection) {
-      toggleHeader(direction);
-      prevDirection = direction;
+
+    if (curScrollY > prevScrollY && curScrollY > $header.height()) {
+      curDirection = 0;
+    } else if (curScrollY < prevScrollY) {
+      curDirection = 1;
+    }
+    if (curDirection !== prevDirection) {
+      toggleHeader(curDirection);
+      prevDirection = curDirection;
     }
     prevScrollY = curScrollY;
   }
@@ -78,6 +83,10 @@
 
     checkScroll(curScrollY);
     activeTocLink(curScrollY);
+  });
+
+  $tocLinks.click(function () {
+    clickedByToc = true;
   });
 
 })(jQuery);
