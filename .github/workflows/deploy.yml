@@ -23,8 +23,10 @@ jobs:
         mv ./candelas/.git $GITHUB_WORKSPACE
         mv ./candelas ./hexo-theme-unit-test/themes
         cd ./hexo-theme-unit-test
-        npx hexo config theme candelas
         npx hexo clean
+        npx hexo config theme candelas
+        npx hexo new page categories
+        cp ./themes/candelas/.github/resources/categories.md ./source/categories/index.md
         npx hexo generate
         mv ./public $GITHUB_WORKSPACE
     - name: Deploy
