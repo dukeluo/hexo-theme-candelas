@@ -1,6 +1,12 @@
-<% page.posts.each(function(post){ %>
-  <%- partial('commons/article', {post: post, index: true}) %>
-<% }) %>
-<% if (page.total > 1){ %>
-  <%- partial('commons/pagination') %>
-<% } %>
+<%- partial('commons/cover') %>
+<div class="outer">
+  <section id="main">
+    <% page.posts.each(function(post){ %>
+      <%- partial('commons/article', {post: post, index: true}) %>
+    <% }) %>
+    <% if (page.total > 1){ %>
+      <%- partial('commons/pagination') %>
+    <% } %>
+  </section>
+  <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
+</div>

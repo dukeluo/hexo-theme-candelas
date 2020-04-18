@@ -1,4 +1,10 @@
-<%- partial('commons/article', {post: page, index: false}) %>
-<% if (theme.gitalk.on){ %>
-  <%- partial('/includes/gitalk') %>
-<% } %>
+<div class="outer">
+  <%- partial('commons/toc', {post: page}) %>
+  <section id="main">
+    <%- partial('commons/article', {post: page, index: false}) %>
+    <% if (theme.gitalk.on){ %>
+      <%- partial('/includes/gitalk') %>
+    <% } %>
+  </section>
+  <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
+</div>

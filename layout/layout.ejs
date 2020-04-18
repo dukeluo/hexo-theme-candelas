@@ -5,18 +5,7 @@
   <div id="container">
     <div id="wrap">
       <%- partial('commons/header') %>
-      <% if (!is_post()){ %>
-        <%- partial('commons/cover') %>
-      <% } %>
-      <div class="outer">
-        <% if (is_post()){ %>
-          <%- partial('commons/toc', {post: page}) %>
-        <% } %>
-        <section id="main"><%- body %></section>
-        <% if (is_post() || is_home()) { %>
-          <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
-        <% } %>
-      </div>
+      <%- body %>
       <%- partial('commons/footer', null, {cache: !config.relative_link}) %>
     </div>
     <%- partial('commons/mobile-nav', null, {cache: !config.relative_link}) %>

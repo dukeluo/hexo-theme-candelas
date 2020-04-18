@@ -1,1 +1,6 @@
-<%- partial('commons/article', {post: page, index: false}) %>
+<%- partial('commons/cover') %>
+<div class="outer">
+  <section id="main">
+    <%- partial('commons/article', {post: page, index: false}) %>
+  </section>
+</div>
