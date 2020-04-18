@@ -31,24 +31,6 @@ body
   font: font-size font-sans
   -webkit-text-size-adjust: 100%
 
-.outer
-  clearfix()
-  max-width: (column-width + gutter-width) * columns + gutter-width
-  margin: 0 auto
-  padding: 0 gutter-width
-
-.inner
-  column(columns)
-
-.left, .alignleft
-  float: left
-
-.right, .alignright
-  float: right
-
-.clear
-  clear: both
-
 #container
   position: relative
 
@@ -67,16 +49,7 @@ body
   .mobile-nav-on &
     left: mobile-nav-width
 
-if sidebar and sidebar isnt bottom
-  #main
-    @media mq-normal
-      column(main-column)
-
-if sidebar is left
-  @media mq-normal
-    #main
-      float: right
-
+@import "layout"
 @import "_extend"
 @import "_partial/header"
 @import "_partial/article"

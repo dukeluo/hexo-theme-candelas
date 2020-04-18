@@ -1,0 +1,62 @@
+sidebar = hexo-config("sidebar")
+main-column = 11
+sidebar-column = 3
+toc-column = 2
+column-width = 100px
+gutter-width = 30px
+
+if sidebar and sidebar isnt bottom
+  _sidebar-column = sidebar-column
+else
+  _sidebar-column = 0
+
+columns = main-column + _sidebar-column + toc-column
+
+.index-outer
+.post-outer
+.page-outer
+  clearfix()
+  margin: 0 auto
+  padding: 0 gutter-width
+
+.index-outer
+  max-width: (column-width + gutter-width) * (main-column + _sidebar-column) + gutter-width
+
+.post-outer
+  max-width: (column-width + gutter-width) * (main-column + _sidebar-column + toc-column) + gutter-width
+
+.page-outer
+  max-width: (column-width + gutter-width) * (main-column) + gutter-width
+
+if sidebar and sidebar isnt bottom
+  #main
+    @media mq-normal
+      column(main-column)
+
+if sidebar and sidebar isnt bottom
+  .index-main
+    @media mq-normal
+      column(main-column, (main-column + _sidebar-column))
+
+  .index-sidebar
+    @media mq-normal
+      column(_sidebar-column, (main-column + _sidebar-column))
+
+if sidebar is left
+  @media mq-normal
+    #main
+      float: right
+
+.inner
+  column(columns)
+
+.left, .alignleft
+  float: left
+
+.right, .alignright
+  float: right
+
+.clear
+  clear: both
+
+

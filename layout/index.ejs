@@ -1,6 +1,6 @@
 <%- partial('commons/cover') %>
-<div class="outer">
-  <section id="main">
+<div class="index-outer">
+  <section class="index-main">
     <% page.posts.each(function(post){ %>
       <%- partial('commons/article', {post: post, index: true}) %>
     <% }) %>
@@ -8,5 +8,7 @@
       <%- partial('commons/pagination') %>
     <% } %>
   </section>
-  <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
+  <section class="index-sidebar">
+    <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
+  </section>
 </div>
