@@ -4,8 +4,6 @@ toc-column = 2
 column-width = 100px
 gutter-width = 30px
 
-columns = main-column + sidebar-column + toc-column
-
 .index-outer
 .post-outer
 .page-outer
@@ -42,16 +40,13 @@ columns = main-column + sidebar-column + toc-column
 .page-outer
   max-width: (column-width + gutter-width) * (main-column) + gutter-width
 
-#main
+.page-main
   @media mq-normal
-    column(main-column)
+    column(main-column, main-column)
 
-@media mq-normal
-  #main
-    float: right
-
+// todo! delete this
 .inner
-  column(columns)
+  // column(columns)
 
 .left, .alignleft
   float: left
