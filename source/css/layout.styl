@@ -1,16 +1,10 @@
-sidebar = hexo-config("sidebar")
 main-column = 11
 sidebar-column = 3
 toc-column = 2
 column-width = 100px
 gutter-width = 30px
 
-if sidebar and sidebar isnt bottom
-  _sidebar-column = sidebar-column
-else
-  _sidebar-column = 0
-
-columns = main-column + _sidebar-column + toc-column
+columns = main-column + sidebar-column + toc-column
 
 .index-outer
 .post-outer
@@ -20,32 +14,41 @@ columns = main-column + _sidebar-column + toc-column
   padding: 0 gutter-width
 
 .index-outer
-  max-width: (column-width + gutter-width) * (main-column + _sidebar-column) + gutter-width
+  max-width: (column-width + gutter-width) * (main-column + sidebar-column) + gutter-width
+
+.index-main
+  @media mq-normal
+    column(main-column, (main-column + sidebar-column))
+
+.index-sidebar
+  @media mq-normal
+    column(sidebar-column, (main-column + sidebar-column))
 
 .post-outer
-  max-width: (column-width + gutter-width) * (main-column + _sidebar-column + toc-column) + gutter-width
+  max-width: (column-width + gutter-width) * (main-column + sidebar-column + toc-column) + gutter-width
+
+.post-main
+  @media mq-normal
+    column(main-column, (main-column + sidebar-column + toc-column))
+
+.post-toc
+  @media mq-normal
+    column(toc-column, (main-column + sidebar-column + toc-column))
+
+.post-sidebar
+  @media mq-normal
+    column(sidebar-column, (main-column + sidebar-column + toc-column))
 
 .page-outer
   max-width: (column-width + gutter-width) * (main-column) + gutter-width
 
-if sidebar and sidebar isnt bottom
-  #main
-    @media mq-normal
-      column(main-column)
-
-if sidebar and sidebar isnt bottom
-  .index-main
-    @media mq-normal
-      column(main-column, (main-column + _sidebar-column))
-
-  .index-sidebar
-    @media mq-normal
-      column(_sidebar-column, (main-column + _sidebar-column))
-
-if sidebar is left
+#main
   @media mq-normal
-    #main
-      float: right
+    column(main-column)
+
+@media mq-normal
+  #main
+    float: right
 
 .inner
   column(columns)
@@ -58,5 +61,3 @@ if sidebar is left
 
 .clear
   clear: both
-
-
