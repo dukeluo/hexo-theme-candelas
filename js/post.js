@@ -16,7 +16,7 @@
   }
 
   function getHeader() {
-    return $('#header-inner');
+    return $("#header-inner");
   }
 
   var $tocLinks = getTocLink();
@@ -30,9 +30,9 @@
 
   function toggleHeader(direction) {
     if (direction === 0) {
-      $header.addClass('header-up');
+      $header.addClass("header-up");
     } else if (direction === 1) {
-      $header.removeClass('header-up');
+      $header.removeClass("header-up");
     }
   }
 
@@ -40,12 +40,6 @@
     if (Math.abs(curScrollY - prevScrollY) <= delta) {
       return;
     }
-
-    if (clickedByToc) {
-      clickedByToc = false;
-      return toggleHeader(0);
-    }
-
     if (curScrollY > prevScrollY && curScrollY > $header.height()) {
       curDirection = 0;
     } else if (curScrollY < prevScrollY) {
@@ -78,15 +72,31 @@
     }
   }
 
+  $tocLinks.click(function (event) {
+    var $clickedTocLink = $(event.target).hasClass("toc-link")
+      ? $(event.target)
+      : $(event.target).parents(".toc-link");
+
+    clickedByToc = true;
+    $tocLinks.each(function () {
+      if ($(this).is($clickedTocLink)) {
+        $(this).addClass("toc-link-active");
+      }
+      else {
+        $(this).removeClass("toc-link-active");
+      }
+    });
+  });
+
   $(window).scroll(function () {
     curScrollY = $(window).scrollTop();
 
+    if (clickedByToc) {
+      clickedByToc = false;
+      return toggleHeader(0);
+    }
     checkScroll(curScrollY);
     activeTocLink(curScrollY);
-  });
-
-  $tocLinks.click(function () {
-    clickedByToc = true;
   });
 
 })(jQuery);
