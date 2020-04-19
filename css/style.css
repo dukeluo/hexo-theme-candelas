@@ -100,16 +100,6 @@ td {
 a img {
   border: none;
 }
-input,
-button {
-  margin: 0;
-  padding: 0;
-}
-input::-moz-focus-inner,
-button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
 @font-face {
   font-family: FontAwesome;
   font-weight: normal;
@@ -126,36 +116,6 @@ body {
   background: #f2f7f5;
   font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-text-size-adjust: 100%;
-}
-.outer {
-  max-width: 2110px;
-  margin: 0 auto;
-  padding: 0 30px;
-}
-.outer:before,
-.outer:after {
-  content: "";
-  display: table;
-}
-.outer:after {
-  clear: both;
-}
-.inner {
-  display: inline;
-  float: left;
-  width: 98.5576923076923%;
-  margin: 0 0.721153846153846%;
-}
-.left,
-.alignleft {
-  float: left;
-}
-.right,
-.alignright {
-  float: right;
-}
-.clear {
-  clear: both;
 }
 #container {
   position: relative;
@@ -178,14 +138,6 @@ body {
 }
 .mobile-nav-on #wrap {
   left: 280px;
-}
-@media screen and (min-width: 768px) {
-  #main {
-    display: inline;
-    float: left;
-    width: 67.3076923076923%;
-    margin: 0 0.721153846153846%;
-  }
 }
 .article-date,
 .article-category-link,
@@ -323,6 +275,104 @@ h6 {
 }
 p {
   color: #475d5b;
+}
+input,
+button {
+  margin: 0;
+  padding: 0;
+}
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+.index-outer,
+.post-outer,
+.page-outer {
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.index-outer:before,
+.post-outer:before,
+.page-outer:before,
+.index-outer:after,
+.post-outer:after,
+.page-outer:after {
+  content: "";
+  display: table;
+}
+.index-outer:after,
+.post-outer:after,
+.page-outer:after {
+  clear: both;
+}
+.index-outer {
+  max-width: 1850px;
+}
+@media screen and (min-width: 768px) {
+  .index-main {
+    display: inline;
+    float: left;
+    width: 76.92307692307693%;
+    margin: 0 0.824175824175824%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .index-sidebar {
+    display: inline;
+    float: left;
+    width: 19.78021978021978%;
+    margin: 0 0.824175824175824%;
+  }
+}
+.post-outer {
+  max-width: 2110px;
+}
+@media screen and (min-width: 768px) {
+  .post-main {
+    display: inline;
+    float: left;
+    width: 67.3076923076923%;
+    margin: 0 0.721153846153846%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .post-toc {
+    display: inline;
+    float: left;
+    width: 11.057692307692307%;
+    margin: 0 0.721153846153846%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .post-sidebar {
+    display: inline;
+    float: left;
+    width: 17.307692307692307%;
+    margin: 0 0.721153846153846%;
+  }
+}
+.page-outer {
+  max-width: 1460px;
+}
+@media screen and (min-width: 768px) {
+  .page-main {
+    display: inline;
+    float: left;
+    width: 97.9020979020979%;
+    margin: 0 1.048951048951049%;
+  }
+}
+.left,
+.alignleft {
+  float: left;
+}
+.right,
+.alignright {
+  float: right;
+}
+.clear {
+  clear: both;
 }
 #header {
   height: 60px;
@@ -1053,6 +1103,7 @@ a.article-title:hover {
 #footer-info {
   line-height: 1.5rem;
   font-size: 0.9rem;
+  text-align: center;
 }
 .article-entry pre,
 .article-entry .highlight {
@@ -1269,6 +1320,7 @@ pre .javascript .function {
   background-size: cover;
 }
 #header-title {
+  width: 100%;
   text-align: center;
   position: absolute;
   top: 50%;
@@ -1292,15 +1344,7 @@ pre .javascript .function {
   letter-spacing: 1px;
   margin-top: 10px;
 }
-@media screen and (min-width: 768px) {
-  #toc {
-    display: inline;
-    float: left;
-    width: 11.057692307692307%;
-    margin: 0 0.721153846153846%;
-  }
-}
-#toc:after {
+.post-toc:after {
   content: '.';
   visibility: hidden;
 }
@@ -1434,14 +1478,6 @@ pre .javascript .function {
   background-color: transparent !important;
   opacity: 0 !important;
   z-index: 0 !important;
-}
-@media screen and (min-width: 768px) {
-  #sidebar {
-    display: inline;
-    float: left;
-    width: 17.307692307692307%;
-    margin: 0 0.721153846153846%;
-  }
 }
 .widget-wrap {
   margin: 50px 0;
