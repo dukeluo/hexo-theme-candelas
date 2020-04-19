@@ -1,6 +1,6 @@
 ; (function ($) {
   function getHeadlineInterval() {
-    var offsets = $("#main h3, #main h4").map(function () {
+    var offsets = $(".article-inner h3, .article-inner h4").map(function () {
       return $(this).offset().top;
     });
     var interval = Array.prototype.slice.call(offsets);
