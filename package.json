@@ -8,8 +8,12 @@
     "lint:styl": "stylint source/css",
     "lint:ec": "eclint check languages/ layout/ source/",
     "lint": "npm run lint:js & npm run lint:ejs & npm run lint:styl & npm run lint:ec",
-    "precommit": "npm run lint"
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
+  "pre-commit": [
+    "precommit-msg",
+    "lint"
+  ],
   "devDependencies": {
     "eclint": "^2.8.1",
     "ejs-lint": "^1.0.1",
