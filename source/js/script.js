@@ -1,3 +1,5 @@
+/* eslint-disable */
+// todo: fix eslint
 (function($){
   // Search
   var $searchWrap = $('#search-form-wrap'),

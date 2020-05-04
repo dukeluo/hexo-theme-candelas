@@ -1,22 +1,23 @@
-; (function ($) {
+// eslint-disable-next-line no-extra-semi
+;(function ($) {
   function getHeadlineInterval() {
-    var offsets = $(".article-inner h3, .article-inner h4").map(function () {
+    var offsets = $('.article-inner h3, .article-inner h4').map(function () {
       return $(this).offset().top;
     });
     var interval = Array.prototype.slice.call(offsets);
 
     interval.push(Math.max($(document).height(), $(window).height()));
-    interval = interval.map(function (i) { return Math.floor(i) });
+    interval = interval.map(function (i) { return Math.floor(i); });
 
     return interval;
   }
 
   function getTocLink() {
-    return $(".toc-wrap .toc-link");
+    return $('.toc-wrap .toc-link');
   }
 
   function getHeader() {
-    return $("#header-inner");
+    return $('#header-inner');
   }
 
   var $tocLinks = getTocLink();
@@ -30,9 +31,9 @@
 
   function toggleHeader(direction) {
     if (direction === 0) {
-      $header.addClass("header-up");
+      $header.addClass('header-up');
     } else if (direction === 1) {
-      $header.removeClass("header-up");
+      $header.removeClass('header-up');
     }
   }
 
@@ -62,10 +63,10 @@
       if (curScrollY >= offsetA && curScrollY < offsetB) {
         $tocLinks.each(function (index) {
           if (index === i) {
-            $(this).addClass("toc-link-active");
+            $(this).addClass('toc-link-active');
           }
           else {
-            $(this).removeClass("toc-link-active");
+            $(this).removeClass('toc-link-active');
           }
         });
       }
@@ -73,17 +74,17 @@
   }
 
   $tocLinks.click(function (event) {
-    var $clickedTocLink = $(event.target).hasClass("toc-link")
+    var $clickedTocLink = $(event.target).hasClass('toc-link')
       ? $(event.target)
-      : $(event.target).parents(".toc-link");
+      : $(event.target).parents('.toc-link');
 
     clickedByToc = true;
     $tocLinks.each(function () {
       if ($(this).is($clickedTocLink)) {
-        $(this).addClass("toc-link-active");
+        $(this).addClass('toc-link-active');
       }
       else {
-        $(this).removeClass("toc-link-active");
+        $(this).removeClass('toc-link-active');
       }
     });
   });
@@ -99,4 +100,5 @@
     activeTocLink(curScrollY);
   });
 
+// eslint-disable-next-line no-undef
 })(jQuery);
