@@ -5,9 +5,8 @@
   "scripts": {
     "lint:js": "eslint --ext .ejs layout/  --ext .js source/js",
     "lint:ejs": "ejslint layout",
-    "lint:styl": "stylint source/css",
     "lint:ec": "eclint check languages/ layout/ source/",
-    "lint": "npm run lint:js & npm run lint:ejs & npm run lint:styl & npm run lint:ec",
+    "lint": "npm run lint:js & npm run lint:ejs & npm run lint:ec",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
   "pre-commit": [
