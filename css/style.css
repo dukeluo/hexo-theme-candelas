@@ -306,6 +306,13 @@ button::-moz-focus-inner {
 .page-outer:after {
   clear: both;
 }
+.index-outer,
+.page-outer {
+  min-height: calc(100vh - 650px);
+}
+.post-outer {
+  min-height: calc(100vh - 150px);
+}
 .index-outer {
   max-width: 1850px;
 }
@@ -1089,9 +1096,16 @@ a.article-title:hover {
   display: block;
 }
 #footer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 150px;
   margin-top: 20px;
   background: #ecf3f0;
-  padding: 50px 0;
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  padding-top: 60px;
 }
 #footer a {
   color: #faae2b;
@@ -1099,11 +1113,6 @@ a.article-title:hover {
 }
 #footer a:hover {
   text-decoration: underline;
-}
-#footer-info {
-  line-height: 1.5rem;
-  font-size: 0.9rem;
-  text-align: center;
 }
 .article-entry pre,
 .article-entry .highlight {
