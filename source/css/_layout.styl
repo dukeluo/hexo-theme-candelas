@@ -12,6 +12,13 @@ gutter-width = 30px
   padding: 0 gutter-width
 
 .index-outer
+.page-outer
+  min-height: "calc(100vh - %s)" % (cover-height + footer-height)
+
+.post-outer
+  min-height: "calc(100vh - %s)" % footer-height
+
+.index-outer
   max-width: (column-width + gutter-width) * (main-column + sidebar-column) + gutter-width
 
 .index-main
