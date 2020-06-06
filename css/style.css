@@ -1537,7 +1537,3 @@ pre .javascript .function {
 .widget ol ol {
   list-style: decimal;
 }
-.tagcloud a {
-  margin-right: 5px;
-  display: inline-block;
-}
