@@ -2,7 +2,11 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><%= __('tags') %></h3>
     <div class="widget">
-      <%- list_tags({show_count: theme.show_count}) %>
+      <%- list_tags({
+        orderby: 'random',
+        show_count: true,
+        amount: 42
+      }) %>
     </div>
   </div>
 <% } %>

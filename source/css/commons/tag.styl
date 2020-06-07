@@ -1,0 +1,56 @@
+.tag-list
+  clearfix()
+  color: card-background-color
+
+  .tag-list-link
+    color: card-background-color
+
+    &:hover
+      cursor: pointer
+      text-decoration: none
+
+.tag-list-item
+  margin: 2px
+  padding: 8px 18px
+  float: left
+  font-weight: 200
+  font-size: 0.9rem
+  line-height: 0.9rem
+  opacity: 0.85
+  transition: opacity 0.1s ease, padding 0.1s ease
+
+  &:hover
+    opacity: 1
+    padding: 8px 20px
+
+    .tag-list-count
+      opacity: 1
+      width: auto
+      margin-left: 6px
+
+.tag-list-count
+  display: inline-block
+  width: 0
+  height: 0.9rem
+  vertical-align: middle
+  overflow: hidden
+  font-size: 0.6rem
+  font-weight: bold
+  line-height: 0.9rem
+  opacity: 0
+  transition: opacity 0.1s ease-out, margin-left 0.1s ease-out
+
+  &:before
+    content: " ["
+
+  &:after
+    content: "]"
+
+$tag_colors = (#F6672E #009BD4 #9FC53A #FFB200 #8F5A9F #4EC9BE #3A537C)
+
+random(min,max)
+  return floor(math(0, 'random')*(max - min + 1) + min)
+
+for i in (1..42)
+  .tag-list-item:nth-child({i})
+    background-color: $tag_colors[random(0, 6)]
