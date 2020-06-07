@@ -114,7 +114,7 @@ body,
 }
 body {
   background: #f2f7f5;
-  font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font: 16px -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 #container {
@@ -518,7 +518,7 @@ button::-moz-focus-inner {
   background: none;
   color: color-default;
   width: 100%;
-  font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font: 13px -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   outline: none;
 }
 .search-form-input::-webkit-search-results-decoration,
@@ -658,7 +658,7 @@ a.article-title:hover {
 .article-entry blockquote footer {
   font-size: 16px;
   margin: 1.5rem 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -901,7 +901,7 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font: 14px -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   padding: 0 15px;
   color: color-default;
   outline: none;
@@ -1220,7 +1220,7 @@ a.article-title:hover {
 .article-entry .gist .gist-file .gist-meta {
   background: #2d2d2d;
   color: #999;
-  font: 0.85em -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font: 0.85em -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
@@ -1487,6 +1487,193 @@ pre .javascript .function {
   background-color: transparent !important;
   opacity: 0 !important;
   z-index: 0 !important;
+}
+.tag-list {
+  color: #fffffe;
+}
+.tag-list:before,
+.tag-list:after {
+  content: "";
+  display: table;
+}
+.tag-list:after {
+  clear: both;
+}
+.tag-list .tag-list-link {
+  color: #fffffe;
+}
+.tag-list .tag-list-link:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+.tag-list-item {
+  margin: 2px;
+  padding: 8px 18px;
+  float: left;
+  font-weight: 200;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  opacity: 0.85;
+  -webkit-transition: opacity 0.1s ease, padding 0.1s ease;
+  -moz-transition: opacity 0.1s ease, padding 0.1s ease;
+  -ms-transition: opacity 0.1s ease, padding 0.1s ease;
+  transition: opacity 0.1s ease, padding 0.1s ease;
+}
+.tag-list-item:hover {
+  opacity: 1;
+  padding: 8px 20px;
+}
+.tag-list-item:hover .tag-list-count {
+  opacity: 1;
+  width: auto;
+  margin-left: 6px;
+}
+.tag-list-count {
+  display: inline-block;
+  width: 0;
+  height: 0.9rem;
+  vertical-align: middle;
+  overflow: hidden;
+  font-size: 0.6rem;
+  font-weight: bold;
+  line-height: 0.9rem;
+  opacity: 0;
+  -webkit-transition: opacity 0.1s ease-out, margin-left 0.1s ease-out;
+  -moz-transition: opacity 0.1s ease-out, margin-left 0.1s ease-out;
+  -ms-transition: opacity 0.1s ease-out, margin-left 0.1s ease-out;
+  transition: opacity 0.1s ease-out, margin-left 0.1s ease-out;
+}
+.tag-list-count:before {
+  content: " [";
+}
+.tag-list-count:after {
+  content: "]";
+}
+.tag-list-item:nth-child(1) {
+  background-color: #9fc53a;
+}
+.tag-list-item:nth-child(2) {
+  background-color: #4ec9be;
+}
+.tag-list-item:nth-child(3) {
+  background-color: #f6672e;
+}
+.tag-list-item:nth-child(4) {
+  background-color: #8f5a9f;
+}
+.tag-list-item:nth-child(5) {
+  background-color: #ffb200;
+}
+.tag-list-item:nth-child(6) {
+  background-color: #9fc53a;
+}
+.tag-list-item:nth-child(7) {
+  background-color: #4ec9be;
+}
+.tag-list-item:nth-child(8) {
+  background-color: #009bd4;
+}
+.tag-list-item:nth-child(9) {
+  background-color: #8f5a9f;
+}
+.tag-list-item:nth-child(10) {
+  background-color: #4ec9be;
+}
+.tag-list-item:nth-child(11) {
+  background-color: #f6672e;
+}
+.tag-list-item:nth-child(12) {
+  background-color: #9fc53a;
+}
+.tag-list-item:nth-child(13) {
+  background-color: #009bd4;
+}
+.tag-list-item:nth-child(14) {
+  background-color: #8f5a9f;
+}
+.tag-list-item:nth-child(15) {
+  background-color: #9fc53a;
+}
+.tag-list-item:nth-child(16) {
+  background-color: #3a537c;
+}
+.tag-list-item:nth-child(17) {
+  background-color: #8f5a9f;
+}
+.tag-list-item:nth-child(18) {
+  background-color: #4ec9be;
+}
+.tag-list-item:nth-child(19) {
+  background-color: #009bd4;
+}
+.tag-list-item:nth-child(20) {
+  background-color: #009bd4;
+}
+.tag-list-item:nth-child(21) {
+  background-color: #f6672e;
+}
+.tag-list-item:nth-child(22) {
+  background-color: #8f5a9f;
+}
+.tag-list-item:nth-child(23) {
+  background-color: #ffb200;
+}
+.tag-list-item:nth-child(24) {
+  background-color: #8f5a9f;
+}
+.tag-list-item:nth-child(25) {
+  background-color: #ffb200;
+}
+.tag-list-item:nth-child(26) {
+  background-color: #8f5a9f;
+}
+.tag-list-item:nth-child(27) {
+  background-color: #ffb200;
+}
+.tag-list-item:nth-child(28) {
+  background-color: #f6672e;
+}
+.tag-list-item:nth-child(29) {
+  background-color: #ffb200;
+}
+.tag-list-item:nth-child(30) {
+  background-color: #3a537c;
+}
+.tag-list-item:nth-child(31) {
+  background-color: #f6672e;
+}
+.tag-list-item:nth-child(32) {
+  background-color: #ffb200;
+}
+.tag-list-item:nth-child(33) {
+  background-color: #ffb200;
+}
+.tag-list-item:nth-child(34) {
+  background-color: #3a537c;
+}
+.tag-list-item:nth-child(35) {
+  background-color: #f6672e;
+}
+.tag-list-item:nth-child(36) {
+  background-color: #8f5a9f;
+}
+.tag-list-item:nth-child(37) {
+  background-color: #009bd4;
+}
+.tag-list-item:nth-child(38) {
+  background-color: #ffb200;
+}
+.tag-list-item:nth-child(39) {
+  background-color: #3a537c;
+}
+.tag-list-item:nth-child(40) {
+  background-color: #9fc53a;
+}
+.tag-list-item:nth-child(41) {
+  background-color: #f6672e;
+}
+.tag-list-item:nth-child(42) {
+  background-color: #8f5a9f;
 }
 .widget-wrap {
   margin: 50px 0;
