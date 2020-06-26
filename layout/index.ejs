@@ -9,6 +9,6 @@
     <% } %>
   </section>
   <section class="index-sidebar">
-    <%- partial('commons/sidebar') %>
+    <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
   </section>
 </div>
