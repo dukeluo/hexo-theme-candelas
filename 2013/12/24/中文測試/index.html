@@ -11,8 +11,9 @@
 <meta property="og:url" content="http://yoursite.com/2013/12/24/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="This is a Chinese test post. 善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。 以也座論頭室業放。要車時地變此親不老高小是統習直麼調未，行年香一？ 就竟在，是我童示讓利分和異種百路關母信過明驗有個歷洋中前合著區亮風值新底車有正結，進快保的行戰從：弟除文辦條國備當來際年每小腳識世可的的外的廣下歌洲保輪市">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2013-12-24T23:31:30.000Z">
-<meta property="article:modified_time" content="2020-06-26T10:38:38.104Z">
+<meta property="article:modified_time" content="2020-09-05T16:03:28.644Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <title>中文測試 | Hexo</title>
@@ -52,7 +53,7 @@
   
   
   
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 <body>
   <div id="container">
@@ -126,13 +127,13 @@
 <blockquote>
 <p>工步他始能詩的，裝進分星海演意學值例道……於財型目古香亮自和這乎？化經溫詩。只賽嚴大一主價世哥受的沒有中年即病行金拉麼河。主小路了種就小為廣不？</p>
 </blockquote>
-<p><em>From <a href="http://www.richyli.com/tool/loremipsum/" target="_blank" rel="noopener">亂數假文產生器 - Chinese Lorem Ipsum</a></em></p>
+<p><em>From <a target="_blank" rel="noopener" href="http://www.richyli.com/tool/loremipsum/">亂數假文產生器 - Chinese Lorem Ipsum</a></em></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/24/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/" data-id="ckbw31t2k000p5fhlbmzga8ni" data-title="中文測試"
+        <a data-url="http://yoursite.com/2013/12/24/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/" data-id="ckepux0il000w4shmeh160inz" data-title="中文測試"
           class="article-share-link">Share</a>
       
       
@@ -190,6 +191,54 @@
 </div>
 
     
+    
+      <script type="module">
+  import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+
+  const FILE_NAME = 'post-like.json';
+
+  const octokit = new Octokit({
+    auth: 'bdaec6e2cadae5d1075a0b110f74a10ea360f41b'
+  });
+
+  async function getPostLikeGist() {
+    const { status, data } = await octokit.request('GET /gists');
+
+    if (status !== 200) {
+      return;
+    }
+
+    const fileGistIdMap = new Map();
+    data.reduce(function(map, gist) {
+      Object.values(gist.files).forEach(file => map.set(file, gist.id));
+      return map;
+    } , fileGistIdMap);
+
+    return fileGistIdMap.get(Array.from(fileGistIdMap.keys()).find(file => file.filename === FILE_NAME))
+      || await createPostLikeGist();
+  }
+
+  async function createPostLikeGist() {
+    const { status, data } = await octokit.request('POST /gists', {
+      accept: 'application/vnd.github.v3+json',
+      description: 'A gist to record likes of each post. It\'s used by Hexo theme candelas (https://github.com/DukeLuo/hexo-theme-candelas).',
+      files: {
+        [FILE_NAME]: {
+          content: JSON.stringify([])
+        }
+      },
+      public: true
+    });
+
+    if (status !== 201) {
+      return;
+    }
+
+    return data.id;
+  }
+</script>
+
+    
   </section>
   <section class="post-sidebar">
     <aside>
@@ -197,7 +246,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Foo/" rel="tag">Foo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bar/" rel="tag">Bar</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Baz/" rel="tag">Baz</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bar/" rel="tag">Bar</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Baz/" rel="tag">Baz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Foo/" rel="tag">Foo</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -221,7 +270,7 @@
           </li>
         
           <li>
-            <a href="/2013/12/25/no-title/">no-title</a>
+            <a href="/2013/12/25/no-title/">(no title)</a>
           </li>
         
           <li>

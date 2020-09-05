@@ -11,8 +11,9 @@
 <meta property="og:url" content="http://yoursite.com/2013/12/24/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%86%E3%82%B9%E3%83%88/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="This is a Japanese test post. 私は昨日ついにその助力家というのの上よりするたなけれ。 最も今をお話団はちょうどこの前後なかろでくらいに困りがいるたをは帰着考えたなかって、そうにもするでうたらない。 がたを知っないはずも同時に九月をいよいよたありた。 もっと槙さんにぼんやり金少し説明にえた自分大した人私か影響にというお関係たうませないが、この次第も私か兄具合に使うて、槙">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2013-12-24T23:33:26.000Z">
-<meta property="article:modified_time" content="2020-06-26T10:38:38.104Z">
+<meta property="article:modified_time" content="2020-09-05T16:03:28.644Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <title>日本語テスト | Hexo</title>
@@ -52,7 +53,7 @@
   
   
   
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 <body>
   <div id="container">
@@ -127,13 +128,13 @@
 <p>それでそれでもご時日をしはずはたったいやと突き抜けるますて、その元がは行ったてという獄を尽すていけですた。</p>
 </blockquote>
 <p>この中道具の日その学校はあなたごろがすまなりかとネルソンさんの考えるですん、辺の事実ないというご盲従ありたですと、爺さんのためが薬缶が結果までの箸の当時してならて、多少の十月にためからそういう上からとにかくしましないと触れべきものたで、ないうですと多少お人達したのでたた。</p>
-<p><em>From <a href="http://lipsum.sugutsukaeru.jp/index.cgi" target="_blank" rel="noopener">すぐ使えるダミーテキスト - 日本語 Lorem ipsum</a></em></p>
+<p><em>From <a target="_blank" rel="noopener" href="http://lipsum.sugutsukaeru.jp/index.cgi">すぐ使えるダミーテキスト - 日本語 Lorem ipsum</a></em></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/24/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%86%E3%82%B9%E3%83%88/" data-id="ckbw31t2m000q5fhlbj63h92w" data-title="日本語テスト"
+        <a data-url="http://yoursite.com/2013/12/24/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%86%E3%82%B9%E3%83%88/" data-id="ckepux0in000x4shmfgp40ft1" data-title="日本語テスト"
           class="article-share-link">Share</a>
       
       
@@ -191,6 +192,54 @@
 </div>
 
     
+    
+      <script type="module">
+  import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+
+  const FILE_NAME = 'post-like.json';
+
+  const octokit = new Octokit({
+    auth: 'bdaec6e2cadae5d1075a0b110f74a10ea360f41b'
+  });
+
+  async function getPostLikeGist() {
+    const { status, data } = await octokit.request('GET /gists');
+
+    if (status !== 200) {
+      return;
+    }
+
+    const fileGistIdMap = new Map();
+    data.reduce(function(map, gist) {
+      Object.values(gist.files).forEach(file => map.set(file, gist.id));
+      return map;
+    } , fileGistIdMap);
+
+    return fileGistIdMap.get(Array.from(fileGistIdMap.keys()).find(file => file.filename === FILE_NAME))
+      || await createPostLikeGist();
+  }
+
+  async function createPostLikeGist() {
+    const { status, data } = await octokit.request('POST /gists', {
+      accept: 'application/vnd.github.v3+json',
+      description: 'A gist to record likes of each post. It\'s used by Hexo theme candelas (https://github.com/DukeLuo/hexo-theme-candelas).',
+      files: {
+        [FILE_NAME]: {
+          content: JSON.stringify([])
+        }
+      },
+      public: true
+    });
+
+    if (status !== 201) {
+      return;
+    }
+
+    return data.id;
+  }
+</script>
+
+    
   </section>
   <section class="post-sidebar">
     <aside>
@@ -198,7 +247,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Foo/" rel="tag">Foo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bar/" rel="tag">Bar</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Baz/" rel="tag">Baz</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bar/" rel="tag">Bar</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Baz/" rel="tag">Baz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Foo/" rel="tag">Foo</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -222,7 +271,7 @@
           </li>
         
           <li>
-            <a href="/2013/12/25/no-title/">no-title</a>
+            <a href="/2013/12/25/no-title/">(no title)</a>
           </li>
         
           <li>

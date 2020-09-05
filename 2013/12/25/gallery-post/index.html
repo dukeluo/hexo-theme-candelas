@@ -11,12 +11,13 @@
 <meta property="og:url" content="http://yoursite.com/2013/12/25/gallery-post/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="This post contains 4 photos:  Widescreen wallpaper Portrait photo Dual widescreen wallpaper Small photo  All photos should be displayed properly. From Wallbase.cc">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/assets/wallpaper-2572384.jpg">
 <meta property="og:image" content="http://yoursite.com/assets/wallpaper-2311325.jpg">
 <meta property="og:image" content="http://yoursite.com/assets/wallpaper-878514.jpg">
 <meta property="og:image" content="http://placehold.it/350x150.jpg">
 <meta property="article:published_time" content="2013-12-25T00:16:18.000Z">
-<meta property="article:modified_time" content="2020-06-26T10:38:38.104Z">
+<meta property="article:modified_time" content="2020-09-05T16:03:28.640Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/assets/wallpaper-2572384.jpg">
@@ -57,7 +58,7 @@
   
   
   
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 <body>
   <div id="container">
@@ -111,19 +112,19 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2572384.jpg" rel="gallery_ckbw31t2400075fhl4wm57iyz">
+      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2572384.jpg" rel="gallery_ckepux0i200074shmfdp8g8pc">
         <img src="/assets/wallpaper-2572384.jpg" itemprop="image">
       </a>
     
-      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2311325.jpg" rel="gallery_ckbw31t2400075fhl4wm57iyz">
+      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2311325.jpg" rel="gallery_ckepux0i200074shmfdp8g8pc">
         <img src="/assets/wallpaper-2311325.jpg" itemprop="image">
       </a>
     
-      <a class="article-gallery-img fancybox" href="/assets/wallpaper-878514.jpg" rel="gallery_ckbw31t2400075fhl4wm57iyz">
+      <a class="article-gallery-img fancybox" href="/assets/wallpaper-878514.jpg" rel="gallery_ckepux0i200074shmfdp8g8pc">
         <img src="/assets/wallpaper-878514.jpg" itemprop="image">
       </a>
     
-      <a class="article-gallery-img fancybox" href="http://placehold.it/350x150.jpg" target="_blank" rel="gallery_ckbw31t2400075fhl4wm57iyz noopener">
+      <a class="article-gallery-img fancybox" target="_blank" href="http://placehold.it/350x150.jpg" rel="gallery_ckepux0i200074shmfdp8g8pc noopener">
         <img src="http://placehold.it/350x150.jpg" itemprop="image">
       </a>
     
@@ -153,13 +154,13 @@
 <li>Small photo</li>
 </ul>
 <p>All photos should be displayed properly.</p>
-<p><em>From <a href="http://wallbase.cc" target="_blank" rel="noopener">Wallbase.cc</a></em></p>
+<p><em>From <a target="_blank" rel="noopener" href="http://wallbase.cc/">Wallbase.cc</a></em></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/25/gallery-post/" data-id="ckbw31t2400075fhl4wm57iyz" data-title="Gallery Post"
+        <a data-url="http://yoursite.com/2013/12/25/gallery-post/" data-id="ckepux0i200074shmfdp8g8pc" data-title="Gallery Post"
           class="article-share-link">Share</a>
       
       
@@ -217,6 +218,54 @@
 </div>
 
     
+    
+      <script type="module">
+  import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+
+  const FILE_NAME = 'post-like.json';
+
+  const octokit = new Octokit({
+    auth: 'bdaec6e2cadae5d1075a0b110f74a10ea360f41b'
+  });
+
+  async function getPostLikeGist() {
+    const { status, data } = await octokit.request('GET /gists');
+
+    if (status !== 200) {
+      return;
+    }
+
+    const fileGistIdMap = new Map();
+    data.reduce(function(map, gist) {
+      Object.values(gist.files).forEach(file => map.set(file, gist.id));
+      return map;
+    } , fileGistIdMap);
+
+    return fileGistIdMap.get(Array.from(fileGistIdMap.keys()).find(file => file.filename === FILE_NAME))
+      || await createPostLikeGist();
+  }
+
+  async function createPostLikeGist() {
+    const { status, data } = await octokit.request('POST /gists', {
+      accept: 'application/vnd.github.v3+json',
+      description: 'A gist to record likes of each post. It\'s used by Hexo theme candelas (https://github.com/DukeLuo/hexo-theme-candelas).',
+      files: {
+        [FILE_NAME]: {
+          content: JSON.stringify([])
+        }
+      },
+      public: true
+    });
+
+    if (status !== 201) {
+      return;
+    }
+
+    return data.id;
+  }
+</script>
+
+    
   </section>
   <section class="post-sidebar">
     <aside>
@@ -224,7 +273,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Foo/" rel="tag">Foo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bar/" rel="tag">Bar</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Baz/" rel="tag">Baz</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bar/" rel="tag">Bar</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Baz/" rel="tag">Baz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Foo/" rel="tag">Foo</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -248,7 +297,7 @@
           </li>
         
           <li>
-            <a href="/2013/12/25/no-title/">no-title</a>
+            <a href="/2013/12/25/no-title/">(no title)</a>
           </li>
         
           <li>
