@@ -1,7 +1,7 @@
 module.exports = {
   'env': {
     'browser': true,
-    'es6': true,
+    'es6': true
   },
   'extends': 'eslint:recommended',
   'rules': {
@@ -33,6 +33,10 @@ module.exports = {
     "html",
   ],
   "settings": {
-    "html/html-extensions": [".ejs"],
+    "html/html-extensions": [".ejs"]
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8
   }
 };

@@ -1,0 +1,45 @@
+<script type="module">
+  import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+
+  const FILE_NAME = 'post-like.json';
+
+  const octokit = new Octokit({
+    auth: 'bdaec6e2cadae5d1075a0b110f74a10ea360f41b'
+  });
+
+  async function getPostLikeGist() {
+    const { status, data } = await octokit.request('GET /gists');
+
+    if (status !== 200) {
+      return;
+    }
+
+    const fileGistIdMap = new Map();
+    data.reduce(function(map, gist) {
+      Object.values(gist.files).forEach(file => map.set(file, gist.id));
+      return map;
+    } , fileGistIdMap);
+
+    return fileGistIdMap.get(Array.from(fileGistIdMap.keys()).find(file => file.filename === FILE_NAME))
+      || await createPostLikeGist();
+  }
+
+  async function createPostLikeGist() {
+    const { status, data } = await octokit.request('POST /gists', {
+      accept: 'application/vnd.github.v3+json',
+      description: 'A gist to record likes of each post. It\'s used by Hexo theme candelas (https://github.com/DukeLuo/hexo-theme-candelas).',
+      files: {
+        [FILE_NAME]: {
+          content: JSON.stringify([])
+        }
+      },
+      public: true
+    });
+
+    if (status !== 201) {
+      return;
+    }
+
+    return data.id;
+  }
+</script>

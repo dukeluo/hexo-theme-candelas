@@ -7,6 +7,9 @@
     <% if (theme.gitalk.on){ %>
       <%- partial('/includes/gitalk') %>
     <% } %>
+    <% if (theme.like.enabled){ %>
+      <%- partial('/commons/post/like') %>
+    <% } %>
   </section>
   <section class="post-sidebar">
     <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
