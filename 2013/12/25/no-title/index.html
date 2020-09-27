@@ -13,7 +13,7 @@
 <meta property="og:description" content="This post doesn’t have a title. Make sure it’s accessible.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2013-12-25T22:57:49.000Z">
-<meta property="article:modified_time" content="2020-09-06T04:37:03.573Z">
+<meta property="article:modified_time" content="2020-09-27T16:00:27.158Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <title>Hexo</title>
@@ -52,8 +52,19 @@
 
   
   
+    
+<script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2.1.4/fingerprint2.min.js" defer></script>
+
+    
+<script src="/js/fingerprint.js" defer></script>
+
+    
+<script src="/js/post-like-gist.js" defer></script>
+
   
-<meta name="generator" content="Hexo 5.1.1"></head>
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container">
@@ -114,7 +125,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/25/no-title/" data-id="ckeqlua7a000g4chibzai0y21" data-title=""
+        <a data-url="http://yoursite.com/2013/12/25/no-title/" data-id="ckflai1qr000g6oj05fo09l2k" data-title=""
           class="article-share-link">Share</a>
       
       
@@ -176,93 +187,15 @@
       <script type="module">
   import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
 
-  const FILE_NAME = 'post-like.json';
-
   const octokit = new Octokit({
-    auth: '38cdf27e7e7af2e9ea4b7e1211dc1fd5d34569d3'
+    auth: window.atob('ZDEzODlhMWI4NGM1NmE4Njc5ZDQyNWE4ZjgxZTQ3YWE3ZjNkMGM4Yw==')
   });
 
   async function main() {
-    const { id, files } = await getPostLikeGist();
+    const { id, files } = await window.candelas.getPostLikeGist(octokit);
 
     console.log(files);
-    updatePostLikeGist(id, 'hello world. Im duke');
-  }
-
-  async function updatePostLikeGist(postLikeGistId, content) {
-    const { status, data } = await octokit.request('PATCH /gists/{gistId}', {
-      gistId: postLikeGistId,
-      description: 'description',
-      files: {
-        [FILE_NAME]: {
-          content: JSON.stringify(content)
-        }
-      }
-    });
-
-    if (status !== 200) {
-      return;
-    }
-
-    return {
-      id: data.id,
-      files: data.files
-    };
-  }
-
-  async function getPostLikeGist() {
-    const fileGistIdMap = await getFileGistIdMap();
-    const postLikeGistId = fileGistIdMap.get(Array.from(fileGistIdMap.keys()).find(file => file.filename === FILE_NAME));
-    const { status, data } = await octokit.request('GET /gists/{gistId}', {
-      gistId: postLikeGistId
-    });
-
-    if (status !== 200) {
-      return;
-    }
-
-    return {
-      id: data.id,
-      files: data.files
-    } || await createPostLikeGist();
-  }
-
-  async function getFileGistIdMap() {
-    const { status, data } = await octokit.request('GET /gists');
-
-    if (status !== 200) {
-      return;
-    }
-
-    const fileGistIdMap = new Map();
-    data.reduce(function (map, gist) {
-      Object.values(gist.files).forEach(file => map.set(file, gist.id));
-      return map;
-    }, fileGistIdMap);
-
-    return fileGistIdMap;
-  }
-
-  async function createPostLikeGist() {
-    const { status, data } = await octokit.request('POST /gists', {
-      accept: 'application/vnd.github.v3+json',
-      description: 'A gist to record likes of each post. It\'s used by Hexo theme candelas. https://github.com/DukeLuo/hexo-theme-candelas',
-      files: {
-        [FILE_NAME]: {
-          content: JSON.stringify([])
-        }
-      },
-      public: true
-    });
-
-    if (status !== 201) {
-      return;
-    }
-
-    return {
-      id: data.id,
-      files: data.files
-    };
+    window.candelas.updatePostLikeGist(octokit, id, 'hello world. Im duke');
   }
 
   main();
