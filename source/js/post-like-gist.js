@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-extra-semi
 ;(function (window) {
   const FILE_NAME = 'post-like.json';
 

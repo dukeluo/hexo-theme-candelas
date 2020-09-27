@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-extra-semi
 ;(function (window) {
   const options = {
     excludes: {
@@ -16,10 +17,10 @@
     return new Promise((resolve, reject) => {
       async function getHash() {
         try {
-          const components = await Fingerprint2.getPromise(options);
+          const components = await window.Fingerprint2.getPromise(options);
           const values = components.map(component => component.value);
 
-          return Fingerprint2.x64hash128(values.join(''), 31);
+          return window.Fingerprint2.x64hash128(values.join(''), 31);
         } catch (e) {
           reject(e);
         }
