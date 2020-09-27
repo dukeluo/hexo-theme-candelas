@@ -45,6 +45,11 @@ if (is_archive()){
   <% if (theme.fancybox){ %>
     <%- js({src: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', integrity: 'sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=', crossorigin: 'anonymous', defer: true}) %>
   <% } %>
+  <% if (theme.like.enabled) { %>
+    <%- js({src: 'https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2.1.4/fingerprint2.min.js', defer: true}) %>
+    <%- js({src: 'js/fingerprint.js', defer: true}) %>
+    <%- js({src: 'js/post-like-gist.js', defer: true}) %>
+  <% } %>
   <% if (theme.google_analytics){ %>
     <%- partial('../includes/google-analytics') %>
   <% } %>
