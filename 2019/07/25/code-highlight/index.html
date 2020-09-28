@@ -13,7 +13,7 @@
 <meta property="og:description" content="Make sure all the code blocks highlighted correctly. All the code samples are come from the demo of https:&#x2F;&#x2F;highlightjs.org">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-07-25T16:43:00.000Z">
-<meta property="article:modified_time" content="2020-09-27T16:00:27.158Z">
+<meta property="article:modified_time" content="2020-09-28T15:48:39.963Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <title>Code Highlight Style test | Hexo</title>
@@ -171,7 +171,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/07/25/code-highlight/" data-id="ckflai1qd00036oj05gv28n3l" data-title="Code Highlight Style test"
+        <a data-url="http://yoursite.com/2019/07/25/code-highlight/" data-id="ckfmpiju600033whmdhckeh1j" data-title="Code Highlight Style test"
           class="article-share-link">Share</a>
       
       
@@ -225,14 +225,14 @@
   import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
 
   const octokit = new Octokit({
-    auth: window.atob('ZDEzODlhMWI4NGM1NmE4Njc5ZDQyNWE4ZjgxZTQ3YWE3ZjNkMGM4Yw==')
+    auth: window.atob('YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==')
   });
 
   async function main() {
     const { id, files } = await window.candelas.getPostLikeGist(octokit);
+    const fingerprint = await window.candelas.getFingerprint();
 
-    console.log(files);
-    window.candelas.updatePostLikeGist(octokit, id, 'hello world. Im duke');
+    window.candelas.updatePostLikeGist(octokit, id, fingerprint);
   }
 
   main();

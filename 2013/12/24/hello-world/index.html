@@ -13,7 +13,7 @@
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2013-12-24T17:49:32.000Z">
-<meta property="article:modified_time" content="2020-09-27T16:00:27.158Z">
+<meta property="article:modified_time" content="2020-09-28T15:48:39.963Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <title>Hello World | Hexo</title>
@@ -136,7 +136,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/24/hello-world/" data-id="ckflai1qk00086oj0brfmdsom" data-title="Hello World"
+        <a data-url="http://yoursite.com/2013/12/24/hello-world/" data-id="ckfmpijud00083whmddgz4u7q" data-title="Hello World"
           class="article-share-link">Share</a>
       
       
@@ -194,14 +194,14 @@
   import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
 
   const octokit = new Octokit({
-    auth: window.atob('ZDEzODlhMWI4NGM1NmE4Njc5ZDQyNWE4ZjgxZTQ3YWE3ZjNkMGM4Yw==')
+    auth: window.atob('YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==')
   });
 
   async function main() {
     const { id, files } = await window.candelas.getPostLikeGist(octokit);
+    const fingerprint = await window.candelas.getFingerprint();
 
-    console.log(files);
-    window.candelas.updatePostLikeGist(octokit, id, 'hello world. Im duke');
+    window.candelas.updatePostLikeGist(octokit, id, fingerprint);
   }
 
   main();

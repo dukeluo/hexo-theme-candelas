@@ -5,7 +5,6 @@
   async function updatePostLikeGist(octokit, postLikeGistId, content) {
     const { status, data } = await octokit.request('PATCH /gists/{gistId}', {
       gistId: postLikeGistId,
-      description: 'description',
       files: {
         [FILE_NAME]: {
           content: JSON.stringify(content)
@@ -26,6 +25,11 @@
   async function getPostLikeGist(octokit) {
     const fileGistIdMap = await getFileGistIdMap(octokit);
     const postLikeGistId = fileGistIdMap.get(Array.from(fileGistIdMap.keys()).find(file => file.filename === FILE_NAME));
+
+    if (!postLikeGistId) {
+      return await createPostLikeGist(octokit);
+    }
+
     const { status, data } = await octokit.request('GET /gists/{gistId}', {
       gistId: postLikeGistId
     });
@@ -37,7 +41,7 @@
     return {
       id: data.id,
       files: data.files
-    } || await createPostLikeGist(octokit);
+    };
   }
 
   async function getFileGistIdMap(octokit) {
