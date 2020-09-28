@@ -7,9 +7,9 @@
 
   async function main() {
     const { id, files } = await window.candelas.getPostLikeGist(octokit);
+    const fingerprint = await window.candelas.getFingerprint();
 
-    console.log(files);
-    window.candelas.updatePostLikeGist(octokit, id, 'hello world. Im duke');
+    window.candelas.updatePostLikeGist(octokit, id, fingerprint);
   }
 
   main();
