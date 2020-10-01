@@ -13,7 +13,7 @@
 <meta property="og:description" content="This post is used for testing tag plugins. See docs for more info. Block QuoteNormal blockquote Praesent diam elit, interdum ut pulvinar placerat, imperdiet at magna.  Quote from a bookDo not just see">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2013-12-25T00:14:39.000Z">
-<meta property="article:modified_time" content="2020-09-28T15:48:39.963Z">
+<meta property="article:modified_time" content="2020-10-01T16:18:51.624Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <title>Tag Plugins | Hexo</title>
@@ -94,7 +94,7 @@
     </div>
 </header>
 
-      <div class="post-outer">
+      <div class="post-outer" data-post-title="Tag Plugins" id="post">
   <section class="post-toc">
     <div class="toc-wrap">
   <h3 class="toc-title">目录</h3>
@@ -170,7 +170,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/25/tag-plugins/" data-id="ckfmpijun000i3whm670c2rz2" data-title="Tag Plugins"
+        <a data-url="http://yoursite.com/2013/12/25/tag-plugins/" data-id="ckfr0x8q1000i35hibh8hgt7m" data-title="Tag Plugins"
           class="article-share-link">Share</a>
       
       
@@ -235,12 +235,20 @@
   const octokit = new Octokit({
     auth: window.atob('YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==')
   });
+  const $post = $('#post');
+  const postTitle = $post.attr('data-post-title');
 
   async function main() {
-    const { id, files } = await window.candelas.getPostLikeGist(octokit);
     const fingerprint = await window.candelas.getFingerprint();
+    const { id, file: { content } } = await window.candelas.getPostLikeGist(octokit);
+    const likeMap = JSON.parse(content) || {};
+    const postLikes = likeMap[postTitle] || [];
 
-    window.candelas.updatePostLikeGist(octokit, id, fingerprint);
+    if (!postLikes.includes(fingerprint)) {
+      postLikes.push(fingerprint);
+    }
+    likeMap[postTitle] = postLikes;
+    window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
   }
 
   main();

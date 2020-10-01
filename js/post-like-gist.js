@@ -7,7 +7,7 @@
       gistId: postLikeGistId,
       files: {
         [FILE_NAME]: {
-          content: JSON.stringify(content)
+          content: content
         }
       }
     });
@@ -18,7 +18,7 @@
 
     return {
       id: data.id,
-      files: data.files
+      file: data.files[FILE_NAME]
     };
   }
 
@@ -40,7 +40,7 @@
 
     return {
       id: data.id,
-      files: data.files
+      file: data.files[FILE_NAME]
     };
   }
 
@@ -66,7 +66,7 @@
       description: 'A gist to record likes of each post. It\'s used by Hexo theme candelas. https://github.com/DukeLuo/hexo-theme-candelas',
       files: {
         [FILE_NAME]: {
-          content: JSON.stringify([])
+          content: JSON.stringify({})
         }
       },
       public: true
@@ -78,7 +78,7 @@
 
     return {
       id: data.id,
-      files: data.files
+      file: data.files[FILE_NAME]
     };
   }
 

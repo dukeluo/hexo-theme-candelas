@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/wallpaper-878514.jpg">
 <meta property="og:image" content="http://placehold.it/350x150.jpg">
 <meta property="article:published_time" content="2013-12-25T00:16:18.000Z">
-<meta property="article:modified_time" content="2020-09-28T15:48:39.963Z">
+<meta property="article:modified_time" content="2020-10-01T16:18:51.624Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/assets/wallpaper-2572384.jpg">
@@ -99,7 +99,7 @@
     </div>
 </header>
 
-      <div class="post-outer">
+      <div class="post-outer" data-post-title="Gallery Post" id="post">
   <section class="post-toc">
     <div class="toc-wrap">
   <h3 class="toc-title">目录</h3>
@@ -123,19 +123,19 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2572384.jpg" rel="gallery_ckfmpijuc00073whmampx39u2">
+      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2572384.jpg" rel="gallery_ckfr0x8pr000735hi9zpdd359">
         <img src="/assets/wallpaper-2572384.jpg" itemprop="image">
       </a>
     
-      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2311325.jpg" rel="gallery_ckfmpijuc00073whmampx39u2">
+      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2311325.jpg" rel="gallery_ckfr0x8pr000735hi9zpdd359">
         <img src="/assets/wallpaper-2311325.jpg" itemprop="image">
       </a>
     
-      <a class="article-gallery-img fancybox" href="/assets/wallpaper-878514.jpg" rel="gallery_ckfmpijuc00073whmampx39u2">
+      <a class="article-gallery-img fancybox" href="/assets/wallpaper-878514.jpg" rel="gallery_ckfr0x8pr000735hi9zpdd359">
         <img src="/assets/wallpaper-878514.jpg" itemprop="image">
       </a>
     
-      <a class="article-gallery-img fancybox" target="_blank" href="http://placehold.it/350x150.jpg" rel="gallery_ckfmpijuc00073whmampx39u2 noopener">
+      <a class="article-gallery-img fancybox" target="_blank" href="http://placehold.it/350x150.jpg" rel="gallery_ckfr0x8pr000735hi9zpdd359 noopener">
         <img src="http://placehold.it/350x150.jpg" itemprop="image">
       </a>
     
@@ -171,7 +171,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/25/gallery-post/" data-id="ckfmpijuc00073whmampx39u2" data-title="Gallery Post"
+        <a data-url="http://yoursite.com/2013/12/25/gallery-post/" data-id="ckfr0x8pr000735hi9zpdd359" data-title="Gallery Post"
           class="article-share-link">Share</a>
       
       
@@ -236,12 +236,20 @@
   const octokit = new Octokit({
     auth: window.atob('YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==')
   });
+  const $post = $('#post');
+  const postTitle = $post.attr('data-post-title');
 
   async function main() {
-    const { id, files } = await window.candelas.getPostLikeGist(octokit);
     const fingerprint = await window.candelas.getFingerprint();
+    const { id, file: { content } } = await window.candelas.getPostLikeGist(octokit);
+    const likeMap = JSON.parse(content) || {};
+    const postLikes = likeMap[postTitle] || [];
 
-    window.candelas.updatePostLikeGist(octokit, id, fingerprint);
+    if (!postLikes.includes(fingerprint)) {
+      postLikes.push(fingerprint);
+    }
+    likeMap[postTitle] = postLikes;
+    window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
   }
 
   main();
