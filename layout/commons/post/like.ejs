@@ -1,24 +1,30 @@
-<script type="module">
-  import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+<div id="post-like">
+  <div class="container">
+    <a class="like-icon"></a>
+    <span id="like-count"></span>
+  </div>
+  <script type="module">
+    import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
 
-  const octokit = new Octokit({
-    auth: window.atob('<%= theme.like.gistBase64Token %>')
-  });
-  const $post = $('#post');
-  const postTitle = $post.attr('data-post-title');
+    const octokit = new Octokit({
+      auth: window.atob('<%= theme.like.gistBase64Token %>')
+    });
+    const $post = $('#post');
+    const postTitle = $post.attr('data-post-title');
 
-  async function main() {
-    const fingerprint = await window.candelas.getFingerprint();
-    const { id, file: { content } } = await window.candelas.getPostLikeGist(octokit);
-    const likeMap = JSON.parse(content) || {};
-    const postLikes = likeMap[postTitle] || [];
+    async function main() {
+      const fingerprint = await window.candelas.getFingerprint();
+      const { id, file: { content } } = await window.candelas.getPostLikeGist(octokit);
+      const likeMap = JSON.parse(content) || {};
+      const postLikes = likeMap[postTitle] || [];
 
-    if (!postLikes.includes(fingerprint)) {
-      postLikes.push(fingerprint);
+      if (!postLikes.includes(fingerprint)) {
+        postLikes.push(fingerprint);
+      }
+      likeMap[postTitle] = postLikes;
+      window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
     }
-    likeMap[postTitle] = postLikes;
-    window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
-  }
 
-  main();
-</script>
+    main();
+  </script>
+</div>
