@@ -1,0 +1,13 @@
+#post-like .container {
+  padding: 30px;
+}
+#post-like .like-icon:before {
+  font-family: font-icon;
+  content: "\f087";
+  font-size: 2rem;
+  color: link-color;
+}
+#post-like .like-icon:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}

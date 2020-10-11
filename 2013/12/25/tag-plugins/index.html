@@ -13,7 +13,7 @@
 <meta property="og:description" content="This post is used for testing tag plugins. See docs for more info. Block QuoteNormal blockquote Praesent diam elit, interdum ut pulvinar placerat, imperdiet at magna.  Quote from a bookDo not just see">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2013-12-25T00:14:39.000Z">
-<meta property="article:modified_time" content="2020-10-01T16:18:51.624Z">
+<meta property="article:modified_time" content="2020-10-11T15:36:47.725Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <title>Tag Plugins | Hexo</title>
@@ -96,11 +96,52 @@
 
       <div class="post-outer" data-post-title="Tag Plugins" id="post">
   <section class="post-toc">
-    <div class="toc-wrap">
+    <div class="post-fixed-container">
+      <div class="toc-wrap">
   <h3 class="toc-title">目录</h3>
   <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Normal-blockquote"><span class="toc-text">Normal blockquote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quote-from-a-book"><span class="toc-text">Quote from a book</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quote-from-Twitter"><span class="toc-text">Quote from Twitter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quote-from-an-article-on-the-web"><span class="toc-text">Quote from an article on the web</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Normal-code-block"><span class="toc-text">Normal code block</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#With-caption"><span class="toc-text">With caption</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#With-caption-and-URL"><span class="toc-text">With caption and URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#With-marked-lines"><span class="toc-text">With marked lines</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gist"><span class="toc-text">Gist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsFiddle"><span class="toc-text">jsFiddle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Left"><span class="toc-text">Left</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Right"><span class="toc-text">Right</span></a></li></ol>
 </div>
 
+      
+        <div id="post-like">
+  <div class="container">
+    <a class="like-icon"></a>
+    <span id="like-count"></span>
+  </div>
+  <script type="module">
+    import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+
+    const octokit = new Octokit({
+      auth: window.atob('YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==')
+    });
+    const $post = $('#post');
+    const postTitle = $post.attr('data-post-title');
+    const $likeIcon = $('#post-like .like-icon');
+    const $likeCount = $('#like-count');
+
+    async function main() {
+      const fingerprint = await window.candelas.getFingerprint();
+      const { id, file: { content } } = await window.candelas.getPostLikeGist(octokit);
+      const likeMap = JSON.parse(content) || {};
+      const postLikes = likeMap[postTitle] || [];
+
+      $likeCount.text(postLikes.length || '');
+      $likeIcon.on('click', () => {
+        if (!postLikes.includes(fingerprint)) {
+          postLikes.push(fingerprint);
+        }
+        likeMap[postTitle] = postLikes;
+        $likeCount.text(postLikes.length);
+        window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
+      });
+    }
+
+    main();
+  </script>
+</div>
+
+      
+    </div>
   </section>
   <section class="post-main">
     <article id="post-tag-plugins" class="h-entry article article-type-post"
@@ -170,7 +211,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/25/tag-plugins/" data-id="ckfr0x8q1000i35hibh8hgt7m" data-title="Tag Plugins"
+        <a data-url="http://yoursite.com/2013/12/25/tag-plugins/" data-id="ckg59tf6a000i1khmgv041k44" data-title="Tag Plugins"
           class="article-share-link">Share</a>
       
       
@@ -226,33 +267,6 @@
     gitalk.render('gitalk-container');
   </script>
 </div>
-
-    
-    
-      <script type="module">
-  import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
-
-  const octokit = new Octokit({
-    auth: window.atob('YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==')
-  });
-  const $post = $('#post');
-  const postTitle = $post.attr('data-post-title');
-
-  async function main() {
-    const fingerprint = await window.candelas.getFingerprint();
-    const { id, file: { content } } = await window.candelas.getPostLikeGist(octokit);
-    const likeMap = JSON.parse(content) || {};
-    const postLikes = likeMap[postTitle] || [];
-
-    if (!postLikes.includes(fingerprint)) {
-      postLikes.push(fingerprint);
-    }
-    likeMap[postTitle] = postLikes;
-    window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
-  }
-
-  main();
-</script>
 
     
   </section>

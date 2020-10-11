@@ -13,7 +13,7 @@
 <meta property="og:description" content="This is a video test post. Youtube   Vimeo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2013-12-25T00:19:15.000Z">
-<meta property="article:modified_time" content="2020-10-01T16:18:51.624Z">
+<meta property="article:modified_time" content="2020-10-11T15:36:47.725Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <title>Videos | Hexo</title>
@@ -96,11 +96,52 @@
 
       <div class="post-outer" data-post-title="Videos" id="post">
   <section class="post-toc">
-    <div class="toc-wrap">
+    <div class="post-fixed-container">
+      <div class="toc-wrap">
   <h3 class="toc-title">目录</h3>
   
 </div>
 
+      
+        <div id="post-like">
+  <div class="container">
+    <a class="like-icon"></a>
+    <span id="like-count"></span>
+  </div>
+  <script type="module">
+    import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+
+    const octokit = new Octokit({
+      auth: window.atob('YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==')
+    });
+    const $post = $('#post');
+    const postTitle = $post.attr('data-post-title');
+    const $likeIcon = $('#post-like .like-icon');
+    const $likeCount = $('#like-count');
+
+    async function main() {
+      const fingerprint = await window.candelas.getFingerprint();
+      const { id, file: { content } } = await window.candelas.getPostLikeGist(octokit);
+      const likeMap = JSON.parse(content) || {};
+      const postLikes = likeMap[postTitle] || [];
+
+      $likeCount.text(postLikes.length || '');
+      $likeIcon.on('click', () => {
+        if (!postLikes.includes(fingerprint)) {
+          postLikes.push(fingerprint);
+        }
+        likeMap[postTitle] = postLikes;
+        $likeCount.text(postLikes.length);
+        window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
+      });
+    }
+
+    main();
+  </script>
+</div>
+
+      
+    </div>
   </section>
   <section class="post-main">
     <article id="post-videos" class="h-entry article article-type-post"
@@ -140,7 +181,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/25/videos/" data-id="ckfr0x8q5000m35hi1yuzbkj3" data-title="Videos"
+        <a data-url="http://yoursite.com/2013/12/25/videos/" data-id="ckg59tf6h000v1khmfjn46orm" data-title="Videos"
           class="article-share-link">Share</a>
       
       
@@ -196,33 +237,6 @@
     gitalk.render('gitalk-container');
   </script>
 </div>
-
-    
-    
-      <script type="module">
-  import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
-
-  const octokit = new Octokit({
-    auth: window.atob('YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==')
-  });
-  const $post = $('#post');
-  const postTitle = $post.attr('data-post-title');
-
-  async function main() {
-    const fingerprint = await window.candelas.getFingerprint();
-    const { id, file: { content } } = await window.candelas.getPostLikeGist(octokit);
-    const likeMap = JSON.parse(content) || {};
-    const postLikes = likeMap[postTitle] || [];
-
-    if (!postLikes.includes(fingerprint)) {
-      postLikes.push(fingerprint);
-    }
-    likeMap[postTitle] = postLikes;
-    window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
-  }
-
-  main();
-</script>
 
     
   </section>
