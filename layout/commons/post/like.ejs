@@ -11,6 +11,8 @@
     });
     const $post = $('#post');
     const postTitle = $post.attr('data-post-title');
+    const $likeIcon = $('#post-like .like-icon');
+    const $likeCount = $('#like-count');
 
     async function main() {
       const fingerprint = await window.candelas.getFingerprint();
@@ -18,11 +20,15 @@
       const likeMap = JSON.parse(content) || {};
       const postLikes = likeMap[postTitle] || [];
 
-      if (!postLikes.includes(fingerprint)) {
-        postLikes.push(fingerprint);
-      }
-      likeMap[postTitle] = postLikes;
-      window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
+      $likeCount.text(postLikes.length || '');
+      $likeIcon.on('click', () => {
+        if (!postLikes.includes(fingerprint)) {
+          postLikes.push(fingerprint);
+        }
+        likeMap[postTitle] = postLikes;
+        $likeCount.text(postLikes.length);
+        window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
+      });
     }
 
     main();
