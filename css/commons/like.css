@@ -1,5 +1,9 @@
 #post-like .container {
-  padding: 30px;
+  padding: 12px 16px;
+  margin: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 #post-like .like-icon:before {
   font-family: font-icon;
@@ -10,4 +14,9 @@
 #post-like .like-icon:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+#post-like #like-count {
+  font-size: 1.2rem;
+  color: card-text-color;
+  font-weight: lighter;
 }
