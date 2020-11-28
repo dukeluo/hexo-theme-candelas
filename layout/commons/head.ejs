@@ -48,7 +48,8 @@ if (is_archive()){
   <% if (theme.like.enabled) { %>
     <%- js({src: 'https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2.1.4/fingerprint2.min.js', defer: true}) %>
     <%- js({src: 'js/fingerprint.js', defer: true}) %>
-    <%- js({src: 'js/post-like-gist.js', defer: true}) %>
+    <%- js({src: 'js/gist.js', defer: true}) %>
+    <%- js({src: 'js/like.js', defer: true, type: 'module'}) %>
   <% } %>
   <% if (theme.google_analytics){ %>
     <%- partial('../includes/google-analytics') %>
