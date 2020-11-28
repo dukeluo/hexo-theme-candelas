@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-extra-semi
-;(function ($) {
+(function ($) {
   function getHeadlineInterval() {
     var offsets = $('.article-inner h3, .article-inner h4').map(function () {
       return $(this).offset().top;
@@ -100,5 +99,4 @@
     activeTocLink(curScrollY);
   });
 
-// eslint-disable-next-line no-undef
 })(jQuery);
