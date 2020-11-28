@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-extra-semi
-;(function (window) {
+(function (window) {
   const options = {
     excludes: {
       plugins: true,

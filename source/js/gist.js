@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-extra-semi
-;(function (window) {
+(function (window) {
   const FILE_NAME = 'post-like.json';
 
   async function updatePostLikeGist(octokit, postLikeGistId, content) {
