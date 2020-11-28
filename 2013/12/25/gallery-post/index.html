@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/wallpaper-878514.jpg">
 <meta property="og:image" content="http://placehold.it/350x150.jpg">
 <meta property="article:published_time" content="2013-12-25T00:16:18.000Z">
-<meta property="article:modified_time" content="2020-10-12T14:41:43.019Z">
+<meta property="article:modified_time" content="2020-11-28T09:16:09.600Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/assets/wallpaper-2572384.jpg">
@@ -64,7 +64,10 @@
 <script src="/js/fingerprint.js" defer></script>
 
     
-<script src="/js/post-like-gist.js" defer></script>
+<script src="/js/gist.js" defer></script>
+
+    
+<script src="/js/like.js" defer type="module"></script>
 
   
   
@@ -108,41 +111,11 @@
 </div>
 
       
-        <div id="post-like">
+        <div id="post-like" data-token="YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==">
   <div class="container">
     <a class="like-icon"></a>
     <span id="like-count"></span>
   </div>
-  <script type="module">
-    import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
-
-    const octokit = new Octokit({
-      auth: window.atob('YTczZTgwYzg5Y2FlZTA2MzBiMDUyZmRiM2NiMzM5MGI0MzZhNGE1NQ==')
-    });
-    const $post = $('#post');
-    const postTitle = $post.attr('data-post-title');
-    const $likeIcon = $('#post-like .like-icon');
-    const $likeCount = $('#like-count');
-
-    async function main() {
-      const fingerprint = await window.candelas.getFingerprint();
-      const { id, file: { content } } = await window.candelas.getPostLikeGist(octokit);
-      const likeMap = JSON.parse(content) || {};
-      const postLikes = likeMap[postTitle] || [];
-
-      $likeCount.text(postLikes.length || '');
-      $likeIcon.on('click', () => {
-        if (!postLikes.includes(fingerprint)) {
-          postLikes.push(fingerprint);
-        }
-        likeMap[postTitle] = postLikes;
-        $likeCount.text(postLikes.length);
-        window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
-      });
-    }
-
-    main();
-  </script>
 </div>
 
       
@@ -164,19 +137,19 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2572384.jpg" rel="gallery_ckg6naeg7000719hmf8jx42mx">
+      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2572384.jpg" rel="gallery_cki1hcvdt00070vng96zo6t7l">
         <img src="/assets/wallpaper-2572384.jpg" itemprop="image">
       </a>
     
-      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2311325.jpg" rel="gallery_ckg6naeg7000719hmf8jx42mx">
+      <a class="article-gallery-img fancybox" href="/assets/wallpaper-2311325.jpg" rel="gallery_cki1hcvdt00070vng96zo6t7l">
         <img src="/assets/wallpaper-2311325.jpg" itemprop="image">
       </a>
     
-      <a class="article-gallery-img fancybox" href="/assets/wallpaper-878514.jpg" rel="gallery_ckg6naeg7000719hmf8jx42mx">
+      <a class="article-gallery-img fancybox" href="/assets/wallpaper-878514.jpg" rel="gallery_cki1hcvdt00070vng96zo6t7l">
         <img src="/assets/wallpaper-878514.jpg" itemprop="image">
       </a>
     
-      <a class="article-gallery-img fancybox" target="_blank" href="http://placehold.it/350x150.jpg" rel="gallery_ckg6naeg7000719hmf8jx42mx noopener">
+      <a class="article-gallery-img fancybox" target="_blank" href="http://placehold.it/350x150.jpg" rel="gallery_cki1hcvdt00070vng96zo6t7l noopener">
         <img src="http://placehold.it/350x150.jpg" itemprop="image">
       </a>
     
@@ -212,7 +185,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2013/12/25/gallery-post/" data-id="ckg6naeg7000719hmf8jx42mx" data-title="Gallery Post"
+        <a data-url="http://yoursite.com/2013/12/25/gallery-post/" data-id="cki1hcvdt00070vng96zo6t7l" data-title="Gallery Post"
           class="article-share-link">Share</a>
       
       
