@@ -17,9 +17,10 @@ import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
 
   $likeCount.text(postLikes.length || '');
   $likeIcon.on('click', () => {
-    if (!postLikes.includes(fingerprint)) {
-      postLikes.push(fingerprint);
+    if (postLikes.includes(fingerprint)) {
+      return ;
     }
+    postLikes.push(fingerprint);
     likeMap[postTitle] = postLikes;
     $likeCount.text(postLikes.length);
     window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
