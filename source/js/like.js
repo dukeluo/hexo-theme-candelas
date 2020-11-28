@@ -25,5 +25,4 @@ import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
     $likeCount.text(postLikes.length);
     window.candelas.updatePostLikeGist(octokit, id, JSON.stringify(likeMap));
   });
-
 })(jQuery);

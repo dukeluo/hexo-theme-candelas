@@ -98,5 +98,4 @@
     checkScroll(curScrollY);
     activeTocLink(curScrollY);
   });
-
 })(jQuery);
