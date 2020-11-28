@@ -34,22 +34,22 @@ if (is_archive()){
     <%- css({href: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css', integrity: 'sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=', crossorigin: 'anonymous'}) %>
   <% } %>
   <%- js({src: 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js', integrity: 'sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=', defer: true, crossorigin: 'anonymous'}) %>
-  <%- js({src: 'js/script.js', defer: true}) %>
   <% if (!is_post()){ %>
     <%- js({src: 'js/cover.js', defer: true}) %>
   <% } %>
   <% if (is_post()){ %>
     <%- js({src: 'js/post.js', defer: true}) %>
   <% } %>
-  <%- js({src: 'js/chocolate.js', defer: true}) %>
-  <% if (theme.fancybox){ %>
-    <%- js({src: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', integrity: 'sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=', crossorigin: 'anonymous', defer: true}) %>
-  <% } %>
-  <% if (theme.like.enabled) { %>
+  <% if (is_post() && theme.like.enabled) { %>
     <%- js({src: 'https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2.1.4/fingerprint2.min.js', defer: true}) %>
     <%- js({src: 'js/fingerprint.js', defer: true}) %>
     <%- js({src: 'js/gist.js', defer: true}) %>
     <%- js({src: 'js/like.js', defer: true, type: 'module'}) %>
+  <% } %>
+  <%- js({src: 'js/script.js', defer: true}) %>
+  <%- js({src: 'js/chocolate.js', defer: true}) %>
+  <% if (theme.fancybox){ %>
+    <%- js({src: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', integrity: 'sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=', crossorigin: 'anonymous', defer: true}) %>
   <% } %>
   <% if (theme.google_analytics){ %>
     <%- partial('../includes/google-analytics') %>
