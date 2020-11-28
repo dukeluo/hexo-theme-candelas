@@ -1,7 +1,7 @@
 (function ($) {
-  var $banner = $('#cover #banner');
-  var bannerUrls = $banner.attr('data-banners').split(';');
-  var randomBannerUrl = bannerUrls[Math.floor(Math.random() * bannerUrls.length)];
+  let $banner = $('#cover #banner');
+  let bannerUrls = $banner.attr('data-banners').split(';');
+  let randomBannerUrl = bannerUrls[Math.floor(Math.random() * bannerUrls.length)];
 
   $banner.css('background-image', 'url(' + randomBannerUrl + ')');
 })(jQuery);
