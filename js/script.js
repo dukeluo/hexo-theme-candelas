@@ -1,14 +1,14 @@
 (function($){
   // Search
-  var $searchWrap = $('#search-form-wrap'),
+  let $searchWrap = $('#search-form-wrap'),
     isSearchAnim = false,
     searchAnimDuration = 200;
 
-  var startSearchAnim = function(){
+  let startSearchAnim = function(){
     isSearchAnim = true;
   };
 
-  var stopSearchAnim = function(callback){
+  let stopSearchAnim = function(callback){
     setTimeout(function(){
       isSearchAnim = false;
       callback && callback();
@@ -37,7 +37,7 @@
   }).on('click', '.article-share-link', function(e){
     e.stopPropagation();
 
-    var $this = $(this),
+    let $this = $(this),
       url = $this.attr('data-url'),
       encodedUrl = encodeURIComponent(url),
       id = 'article-share-box-' + $this.attr('data-id'),
@@ -53,7 +53,7 @@
         return;
       }
     } else {
-      var html = `
+      let html = `
         <div id="${id}" class="article-share-box">
           <input class="article-share-input" value="${url}">
           <div class="article-share-links">
@@ -91,7 +91,7 @@
     $(this).find('img').each(function(){
       if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
 
-      var alt = this.alt;
+      let alt = this.alt;
 
       if (alt) $(this).after('<span class="caption">' + alt + '</span>');
 
@@ -108,15 +108,15 @@
   }
 
   // Mobile nav
-  var $container = $('#container'),
+  let $container = $('#container'),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
 
-  var startMobileNavAnim = function(){
+  let startMobileNavAnim = function(){
     isMobileNavAnim = true;
   };
 
-  var stopMobileNavAnim = function(){
+  let stopMobileNavAnim = function(){
     setTimeout(function(){
       isMobileNavAnim = false;
     }, mobileNavAnimDuration);
