@@ -1,5 +1,3 @@
-/* eslint-disable */
-// todo: fix eslint
 (function($){
   // Search
   var $searchWrap = $('#search-form-wrap'),
@@ -44,29 +42,29 @@
       encodedUrl = encodeURIComponent(url),
       id = 'article-share-box-' + $this.attr('data-id'),
       title = $this.attr('data-title'),
-      offset = $this.offset();
+      offset = $this.offset(),
+      box;
 
     if ($('#' + id).length){
-      var box = $('#' + id);
+      box = $('#' + id);
 
       if (box.hasClass('on')){
         box.removeClass('on');
         return;
       }
     } else {
-      var html = [
-        '<div id="' + id + '" class="article-share-box">',
-          '<input class="article-share-input" value="' + url + '">',
-          '<div class="article-share-links">',
-            '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-            '<a href="https://www.linkedin.com/shareArticle?mini=true&url=' + encodedUrl + '" class="article-share-linkedin" target="_blank" title="LinkedIn"></a>',
-          '</div>',
-        '</div>'
-      ].join('');
+      var html = `
+        <div id="${id}" class="article-share-box">
+          <input class="article-share-input" value="${url}">
+          <div class="article-share-links">
+            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodedUrl}" class="article-share-twitter" target="_blank" title="Twitter"></a>
+            <a href="https://www.facebook.com/sharer.php?u=${encodedUrl}" class="article-share-facebook" target="_blank" title="Facebook"></a>
+            <a href="http://pinterest.com/pin/create/button/?url=${encodedUrl}" class="article-share-pinterest" target="_blank" title="Pinterest"></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}" class="article-share-linkedin" target="_blank" title="LinkedIn"></a>
+          </div>
+        </div>`;
 
-      var box = $(html);
+      box = $(html);
 
       $('body').append(box);
     }
@@ -97,7 +95,7 @@
 
       if (alt) $(this).after('<span class="caption">' + alt + '</span>');
 
-      $(this).wrap('<a href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
+      $(this).wrap(`<a href="${this.src}" data-fancybox="gallery" data-caption="${alt}"></a>`);
     });
 
     $(this).find('.fancybox').each(function(){
@@ -122,7 +120,7 @@
     setTimeout(function(){
       isMobileNavAnim = false;
     }, mobileNavAnimDuration);
-  }
+  };
 
   $('#main-nav-toggle').on('click', function(){
     if (isMobileNavAnim) return;
