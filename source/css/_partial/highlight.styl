@@ -1,17 +1,3 @@
-// https://github.com/chriskempson/tomorrow-theme
-highlight-background = #2d2d2d
-highlight-current-line = #393939
-highlight-selection = #515151
-highlight-foreground = #cccccc
-highlight-comment = #999999
-highlight-red = #f2777a
-highlight-orange = #f99157
-highlight-yellow = #ffcc66
-highlight-green = #99cc99
-highlight-aqua = #66cccc
-highlight-blue = #6699cc
-highlight-purple = #cc99cc
-
 $code-block
   background: highlight-background
   margin: 0
@@ -24,8 +10,8 @@ $code-block
   line-height: font-size * line-height
 
 $line-numbers
-  color: #666
-  font-size: 0.85em
+  color: highlight-linenumber
+  font-size: 0.85 * font-size
 
 .article-entry
   pre, code
@@ -98,7 +84,7 @@ $line-numbers
       .gist-meta
         background: highlight-background
         color: highlight-comment
-        font: 0.85em font-sans
+        font: 0.85 * font-size font-sans
         text-shadow: 0 0
         padding: 0
         margin-top: 1em
