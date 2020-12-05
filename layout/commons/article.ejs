@@ -25,6 +25,9 @@
     </div>
     <footer class="article-footer">
       <% if (is_post()) { %>
+        <%- partial('post/copyright', {post: post}) %>
+      <% } %>
+      <% if (is_post()) { %>
         <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" data-title="<%= post.title %>"
           class="article-share-link"><%= __('share') %></a>
       <% } %>
