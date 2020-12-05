@@ -24,7 +24,7 @@
       <% } %>
     </div>
     <footer class="article-footer">
-      <% if (is_post()) { %>
+      <% if (is_post() && theme.copyright.enabled) { %>
         <%- partial('post/copyright', {post: post}) %>
       <% } %>
       <% if (is_post()) { %>
