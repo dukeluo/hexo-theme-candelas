@@ -5,13 +5,17 @@
     margin: block-margin 0
 
 .article-nav-link-wrap
-  text-decoration: none
-  margin-top: block-margin
-  text-align: center
   display: block
+  box-sizing: border-box
+  margin-top: block-margin
+  padding: 0 12px
+  text-align: center
+  text-decoration: none
   @media mq-normal
     width: 50%
     margin-top: 0
+    &:last-child
+      border-left: 1px dashed color-grey
 
 #article-nav-newer
   @media mq-normal
