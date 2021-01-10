@@ -1,0 +1,41 @@
+.article-share-links a {
+  color: color-grey;
+}
+.article-share-twitter,
+.article-share-facebook,
+.article-share-pinterest,
+.article-share-linkedin {
+  margin-right: 1.6rem;
+  display: inline-block;
+}
+.article-share-twitter:before,
+.article-share-facebook:before,
+.article-share-pinterest:before,
+.article-share-linkedin:before {
+  font-size: 1.5rem;
+  font-family: font-icon;
+}
+.article-share-twitter:before {
+  content: "\f099";
+}
+.article-share-twitter:hover {
+  color: color-twitter;
+}
+.article-share-facebook:before {
+  content: "\f09a";
+}
+.article-share-facebook:hover {
+  color: color-facebook;
+}
+.article-share-pinterest:before {
+  content: "\f0d2";
+}
+.article-share-pinterest:hover {
+  color: color-pinterest;
+}
+.article-share-linkedin:before {
+  content: "\f0e1";
+}
+.article-share-linkedin:hover {
+  color: color-linkedin;
+}
