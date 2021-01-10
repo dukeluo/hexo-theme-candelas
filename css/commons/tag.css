@@ -1,3 +1,6 @@
+#article-tag {
+  display: inline-block;
+}
 .article-tag-list:before {
   font-family: font-icon;
   content: '\f02c';

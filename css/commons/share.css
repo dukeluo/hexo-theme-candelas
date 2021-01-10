@@ -1,3 +1,7 @@
+.article-share-links {
+  float: right;
+  display: inline-block;
+}
 .article-share-links a {
   color: color-grey;
 }
@@ -5,7 +9,7 @@
 .article-share-facebook,
 .article-share-pinterest,
 .article-share-linkedin {
-  margin-right: 1.6rem;
+  margin-left: 1.6rem;
   display: inline-block;
 }
 .article-share-twitter:before,
