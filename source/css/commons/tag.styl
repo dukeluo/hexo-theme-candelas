@@ -1,56 +1,46 @@
-.tag-list
-  clearfix()
-  color: card-background-color
+.article-tag-list:before
+  font-family: font-icon
+  content:'\f02c'
+  display: inline-block
+  margin-right: 10px
+  vertical-align: middle
+  font-size: 1.5rem
+  color: link-color
 
-  .tag-list-link
-    color: card-background-color
-
-    &:hover
-      cursor: pointer
-      text-decoration: none
-
-.tag-list-item
-  margin: 2px
-  padding: 8px 18px
-  float: left
-  font-weight: 200
-  font-size: 0.9rem
-  line-height: 0.9rem
-  opacity: 0.85
-  transition: opacity 0.1s ease-out, padding 0.1s ease-out
+.article-tag-list-item
+  display: inline-block
+  margin-right: 1rem
+  font-size: 1.1rem
 
   &:hover
-    opacity: 1
-    padding: 8px 20px
+    font-weight: bold
+    transform: translateY(-3px)
 
-    .tag-list-count
-      opacity: 1
-      width: auto
-      margin-left: 6px
-
-.tag-list-count
+.article-tag-list-link
   display: inline-block
-  width: 0
-  height: 0.9rem
-  vertical-align: middle
-  overflow: hidden
-  font-size: 0.6rem
-  font-weight: bold
-  line-height: 0.9rem
-  opacity: 0
-  transition: opacity 0.1s ease-out, margin-left 0.1s ease-out
-
-  &:before
-    content: " ["
+  background-color: card-highlight-color
+  border-radius: 0 4px 4px 0
+  height: 2rem
+  line-height: 2rem
+  padding: 0 1.4rem 0 1.2rem
+  position: relative
 
   &:after
-    content: "]"
+    content: ""
+    background: grey-color
+    border-radius: 6px
+    height: 6px
+    width: 6px
+    position: absolute
+    right: 10px
+    top: calc(50% - 3px)
 
-$tag_colors = (#F6672E #009BD4 #9FC53A #FFB200 #8F5A9F #4EC9BE #3A537C)
-
-random(min,max)
-  return floor(math(0, 'random')*(max - min + 1) + min)
-
-for i in (1..42)
-  .tag-list-item:nth-child({i})
-    background-color: $tag_colors[random(0, 6)]
+  &:before
+    background-color: card-background-color
+    border-bottom: 1rem solid transparent
+    border-top 1rem solid transparent
+    border-right: 0.8rem solid card-highlight-color
+    content: ""
+    position: absolute
+    left: 0
+    top: 0
