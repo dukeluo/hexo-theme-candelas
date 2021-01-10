@@ -27,11 +27,10 @@
       <% if (is_post() && theme.copyright.enabled) { %>
         <%- partial('post/copyright', {post: post}) %>
       <% } %>
-      <% if (is_post()) { %>
-        <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" data-title="<%= post.title %>"
-          class="article-share-link"><%= __('share') %></a>
-      <% } %>
       <%- partial('post/tag') %>
+      <% if (is_post()) { %>
+        <%- partial('post/share') %>
+      <% } %>
     </footer>
   </div>
   <% if (!index){ %>
