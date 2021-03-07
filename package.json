@@ -2,6 +2,21 @@
   "name": "hexo-theme-candelas",
   "version": "0.0.0",
   "description": "the next generation of hexo theme landscape",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DukeLuo/hexo-theme-candelas.git"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "candelas"
+  ],
+  "author": "Duke Luo <dukeluo@outlook.com> (https://dukeluo.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DukeLuo/hexo-theme-candelas/issues"
+  },
+  "homepage": "https://github.com/DukeLuo/hexo-theme-candelas",
   "scripts": {
     "lint:js": "eslint --ext .ejs layout/  --ext .js source/js",
     "lint:ejs": "ejslint layout",
