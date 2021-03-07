@@ -1,0 +1,47 @@
+# Site
+menu:
+  Home: /
+  Category: /categories
+  Archive: /archives
+rss: /atom.xml
+favicon: /favicon.ico
+banner:
+  - "https://files.dukeluo.me/banner/banner-1.jpg"
+  - "https://files.dukeluo.me/banner/banner-2.jpg"
+  - "https://files.dukeluo.me/banner/banner-4.jpg"
+  - "https://files.dukeluo.me/banner/banner-5.jpg"
+  - "https://files.dukeluo.me/banner/banner-6.jpg"
+
+# Content
+excerpt_link: Read More
+fancybox: true
+recent_posts_limits: 5
+
+# Widget behavior
+archive_type: 'monthly'
+
+# Miscellaneous
+google_analytics:
+gauges_analytics:
+twitter:
+fb_admins:
+fb_app_id:
+
+# Gitalk
+gitalk:
+  on: true
+  owner: pidan7
+  repo: candelas
+  admin: ['pidan7']
+  clientID: 223a827a84c7fa9175f8
+  clientSecret: aa58d8fe3a80675efa7d9505e82aed0ba58acdba
+  labels: ['Gitalk', 'Candelas']
+
+# Like
+like:
+  enabled: true
+  gistBase64Token: 'MzhhZjdiZTFlYzhlZDA1NDhiZTI5ZTk1NTc0ZGViOGExOWVlOTIxYw=='
+
+# Copyright
+copyright:
+  enabled: true
