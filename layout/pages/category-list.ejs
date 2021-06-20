@@ -1,0 +1,11 @@
+<%- partial('commons/cover') %>
+<div class="page-outer">
+  <section class="page-main">
+    <section class="categories-wrap">
+      <h3 class="categories-title"><%= __('category') %></h3>
+      <%- list_categories({
+        depth: 1
+      }) %>
+    </section>
+  </section>
+</div>

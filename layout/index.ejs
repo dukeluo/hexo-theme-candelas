@@ -1,14 +1,1 @@
-<%- partial('commons/cover') %>
-<div class="index-outer">
-  <section class="index-main">
-    <% page.posts.each(function(post){ %>
-      <%- partial('commons/article', {post: post, index: true}) %>
-    <% }) %>
-    <% if (page.total > 1){ %>
-      <%- partial('commons/pagination') %>
-    <% } %>
-  </section>
-  <section class="index-sidebar">
-    <%- partial('commons/sidebar', null, {cache: !config.relative_link}) %>
-  </section>
-</div>
+<%- partial('pages/home') %>
