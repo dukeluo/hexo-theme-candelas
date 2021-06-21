@@ -1,10 +1,7 @@
 <div class="post-outer" data-post-title="<%= page.title %>" id="post">
   <section class="post-toc">
     <div class="post-fixed-container">
-      <%- partial('commons/toc', {post: page}) %>
-      <% if (theme.like.enabled){ %>
-        <%- partial('commons/post/like') %>
-      <% } %>
+      <%- partial('commons/sidebar/sidebar-left', {post: page}) %>
     </div>
   </section>
   <section class="post-main">
@@ -14,6 +11,6 @@
     <% } %>
   </section>
   <section class="post-sidebar">
-    <%- partial('commons/sidebar/index', null, {cache: !config.relative_link}) %>
+    <%- partial('commons/sidebar/sidebar-right', null, {cache: !config.relative_link}) %>
   </section>
 </div>
