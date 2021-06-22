@@ -1,7 +1,3 @@
-// #sidebar
-//   @media mq-normal
-//     column(sidebar-column)
-
 .widget-wrap
   margin: block-margin 0
 
@@ -20,3 +16,18 @@
     ul, ol, dl
       margin-left: 15px
       list-style: disc
+
+.widget
+  @extend $base-style
+  line-height: line-height
+  word-wrap: break-word
+  font-size: 0.9em
+  ul, ol
+    list-style: none
+    margin: 0
+    ul, ol
+      margin: 0 20px
+    ul
+      list-style: disc
+    ol
+      list-style: decimal
