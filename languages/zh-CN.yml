@@ -9,7 +9,10 @@ archive: 归档
 page: 第 %d 页
 recent_posts: 最新文章
 share: Share
-rss_feed: RSS Feed
 category: 分类
 tag: Tag
 toc: 目录
+profile: 关于我
+github: GitHub
+email: 邮箱
+rss_feed: RSS

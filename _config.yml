@@ -3,7 +3,6 @@ menu:
   Home: /
   Category: /categories
   Archive: /archives
-rss: /atom.xml
 favicon: /favicon.ico
 banner:
   - "https://files.dukeluo.me/banner/banner-1.jpg"
@@ -45,3 +44,9 @@ like:
 # Copyright
 copyright:
   enabled: true
+
+# Profile
+profile:
+  github: DukeLuo
+  email: dukeluo@outlook.com
+  rss: /atom.xml

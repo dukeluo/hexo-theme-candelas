@@ -1,0 +1,28 @@
+<div class="widget-wrap">
+  <h3 class="widget-title">
+    <%= __('profile') %>
+  </h3>
+  <div class="widget">
+    <div class="profile">
+      <div class="basic">
+        <div class="avatar"></div>
+        <div class="info">
+          <h2 class="name">DukeLuo</h2>
+          <h3 class="location">Wuhan</h3>
+        </div>
+      </div>
+      <div class="links">
+        <% if (theme.profile.github){ %>
+          <a id="github-link" class="profile-link" href="<%= 'https://github.com/' + (theme.profile.github) %>" title="<%= __('github') %>"></a>
+        <% } %>
+        <% if (theme.profile.email){ %>
+          <a id="email-link" class="profile-link" href="<%= 'mailto:' + (theme.profile.email) %>" title="<%= __('email') %>"></a>
+        <% } %>
+        <% if (theme.profile.rss){ %>
+          <a id="rss-link" class="profile-link" href="<%= url_for(theme.profile.rss) %>" title="<%= __('rss_feed') %>"></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
