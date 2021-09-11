@@ -1,8 +1,6 @@
 <div class="post-outer" data-post-title="<%= page.title %>" id="post">
   <section class="post-toc">
-    <div class="post-fixed-container">
-      <%- partial('commons/sidebar/sidebar-left', {post: page}) %>
-    </div>
+    <%- partial('commons/sidebar/sidebar-left', {post: page}) %>
   </section>
   <section class="post-main">
     <%- partial('commons/article', {post: page, index: false}) %>
