@@ -38,7 +38,7 @@ if (is_archive()){
     <%- js({src: 'js/cover.js', defer: true}) %>
   <% } %>
   <% if (is_post()){ %>
-    <%- js({src: 'js/post.js', defer: true}) %>
+    <%- js({src: 'js/toc.js', defer: true}) %>
   <% } %>
   <% if (is_post() && theme.like.enabled) { %>
     <%- js({src: 'https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2.1.4/fingerprint2.min.js', defer: true}) %>
