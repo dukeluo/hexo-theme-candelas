@@ -1,16 +1,26 @@
 .article-share-links
-  float: right
-  display: inline-block
-
   a
     color: color-grey
 
+  @media mq-normal
+    float: right
+    display: inline-block
+    margin-top: 4px
+
+  @media mq-small
+    margin-top: 16px
+
 $article-share-link
-  margin-left: 1.6rem
   display: inline-block
   &:before
     font-size: 1.5rem
     font-family: font-icon
+
+  @media mq-normal
+    margin-left: 1.6rem
+
+  @media mq-small
+    margin-right: 1.6rem
 
 .article-share-twitter
   @extend $article-share-link
