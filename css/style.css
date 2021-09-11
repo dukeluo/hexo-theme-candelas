@@ -423,7 +423,8 @@ button::-moz-focus-inner {
   box-shadow: none !important;
 }
 .nav-icon,
-.main-nav-link {
+.main-nav-link,
+.profile-link {
   float: left;
   color: #fffffe;
   text-decoration: none;
@@ -435,7 +436,8 @@ button::-moz-focus-inner {
   padding: 20px 15px;
 }
 .nav-icon:hover,
-.main-nav-link:hover {
+.main-nav-link:hover,
+.profile-link:hover {
   opacity: 0.6;
 }
 .nav-icon {
@@ -473,9 +475,6 @@ button::-moz-focus-inner {
 }
 #sub-nav {
   float: right;
-}
-#nav-rss-link:before {
-  content: "\f09e";
 }
 #nav-search-btn:before {
   content: "\f002";
@@ -1417,28 +1416,28 @@ pre .javascript .function {
   content: "]";
 }
 .tag-list-item:nth-child(1) {
-  background-color: #ffb200;
+  background-color: #3a537c;
 }
 .tag-list-item:nth-child(2) {
-  background-color: #009bd4;
-}
-.tag-list-item:nth-child(3) {
-  background-color: #9fc53a;
-}
-.tag-list-item:nth-child(4) {
   background-color: #8f5a9f;
 }
+.tag-list-item:nth-child(3) {
+  background-color: #8f5a9f;
+}
+.tag-list-item:nth-child(4) {
+  background-color: #ffb200;
+}
 .tag-list-item:nth-child(5) {
-  background-color: #009bd4;
+  background-color: #3a537c;
 }
 .tag-list-item:nth-child(6) {
-  background-color: #009bd4;
+  background-color: #3a537c;
 }
 .tag-list-item:nth-child(7) {
-  background-color: #009bd4;
+  background-color: #9fc53a;
 }
 .tag-list-item:nth-child(8) {
-  background-color: #f6672e;
+  background-color: #ffb200;
 }
 .tag-list-item:nth-child(9) {
   background-color: #3a537c;
@@ -1447,73 +1446,73 @@ pre .javascript .function {
   background-color: #4ec9be;
 }
 .tag-list-item:nth-child(11) {
-  background-color: #3a537c;
-}
-.tag-list-item:nth-child(12) {
   background-color: #4ec9be;
 }
+.tag-list-item:nth-child(12) {
+  background-color: #009bd4;
+}
 .tag-list-item:nth-child(13) {
-  background-color: #8f5a9f;
+  background-color: #009bd4;
 }
 .tag-list-item:nth-child(14) {
-  background-color: #f6672e;
+  background-color: #8f5a9f;
 }
 .tag-list-item:nth-child(15) {
-  background-color: #3a537c;
+  background-color: #009bd4;
 }
 .tag-list-item:nth-child(16) {
   background-color: #ffb200;
 }
 .tag-list-item:nth-child(17) {
-  background-color: #3a537c;
+  background-color: #4ec9be;
 }
 .tag-list-item:nth-child(18) {
-  background-color: #3a537c;
+  background-color: #f6672e;
 }
 .tag-list-item:nth-child(19) {
-  background-color: #009bd4;
-}
-.tag-list-item:nth-child(20) {
   background-color: #3a537c;
 }
+.tag-list-item:nth-child(20) {
+  background-color: #8f5a9f;
+}
 .tag-list-item:nth-child(21) {
-  background-color: #ffb200;
+  background-color: #3a537c;
 }
 .tag-list-item:nth-child(22) {
-  background-color: #009bd4;
+  background-color: #f6672e;
 }
 .tag-list-item:nth-child(23) {
-  background-color: #ffb200;
+  background-color: #9fc53a;
 }
 .tag-list-item:nth-child(24) {
-  background-color: #ffb200;
+  background-color: #9fc53a;
 }
 .tag-list-item:nth-child(25) {
   background-color: #8f5a9f;
 }
 .tag-list-item:nth-child(26) {
-  background-color: #4ec9be;
+  background-color: #8f5a9f;
 }
 .tag-list-item:nth-child(27) {
-  background-color: #ffb200;
+  background-color: #8f5a9f;
 }
 .tag-list-item:nth-child(28) {
-  background-color: #f6672e;
+  background-color: #009bd4;
 }
 .tag-list-item:nth-child(29) {
-  background-color: #4ec9be;
+  background-color: #9fc53a;
 }
 .tag-list-item:nth-child(30) {
-  background-color: #009bd4;
+  background-color: #8f5a9f;
 }
 .tag-list-item:nth-child(31) {
   background-color: #9fc53a;
 }
 .tag-list-item:nth-child(32) {
-  background-color: #3a537c;
+  background-color: #4ec9be;
 }
 .tag-list-item:nth-child(33) {
-  background-color: #4ec9be;
+  background-color: #9fc53a;
 }
 .tag-list-item:nth-child(34) {
   background-color: #3a537c;
@@ -1522,25 +1521,102 @@ pre .javascript .function {
   background-color: #4ec9be;
 }
 .tag-list-item:nth-child(36) {
-  background-color: #9fc53a;
+  background-color: #8f5a9f;
 }
 .tag-list-item:nth-child(37) {
-  background-color: #3a537c;
+  background-color: #8f5a9f;
 }
 .tag-list-item:nth-child(38) {
-  background-color: #f6672e;
+  background-color: #3a537c;
 }
 .tag-list-item:nth-child(39) {
-  background-color: #009bd4;
+  background-color: #3a537c;
 }
 .tag-list-item:nth-child(40) {
-  background-color: #ffb200;
+  background-color: #4ec9be;
 }
 .tag-list-item:nth-child(41) {
   background-color: #f6672e;
 }
 .tag-list-item:nth-child(42) {
-  background-color: #3a537c;
+  background-color: #f6672e;
+}
+.profile {
+  height: 420px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+.profile .basic {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+}
+.profile .basic .avatar {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 4px solid #00473e;
+  background: url("https://avatars.githubusercontent.com/u/26000789?v=4");
+  -webkit-background-size: 110% 110%;
+  -moz-background-size: 110% 110%;
+  background-size: 110% 110%;
+  background-position: center center;
+}
+.profile .basic .info {
+  margin-left: 16px;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -ms-flex-item-align: end;
+}
+.profile .basic .info .name {
+  font-size: 32px;
+  font-weight: 400;
+  color: #00473e;
+  margin-bottom: 4px;
+}
+.profile .basic .info .location {
+  font-size: 16px;
+  font-weight: 200;
+  font-style: italic;
+  color: #475d5b;
+}
+.profile-link {
+  font-family: FontAwesome;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  padding: 12px 8px;
+  cursor: pointer;
+  color: #a1afc9;
+}
+.profile-link:hover {
+  text-decoration: none;
+}
+#github-link:before {
+  content: "\f09b";
+}
+#email-link:before {
+  content: "\f0e0";
+}
+#rss-link:before {
+  content: "\f09e";
 }
 @media screen and (min-width: 769px) {
   .post-fixed-container {
