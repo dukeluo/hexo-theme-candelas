@@ -1,4 +1,6 @@
 .pagination
+  clearfix()
+
   .newer-posts
   .older-posts
     display: inline-block
@@ -17,3 +19,13 @@
 
   .older-posts
     float: right
+
+@media mq-mobile
+  .pagination
+    .newer-posts
+    .older-posts
+      padding: 0
+      border: 0
+
+      &:hover
+        background: none
