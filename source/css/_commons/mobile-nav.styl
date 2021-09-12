@@ -1,5 +1,6 @@
 @media mq-mobile
   #mobile-nav
+    visibility: visible
     position: absolute
     top: 0
     left: 0
@@ -16,3 +17,7 @@
 
       &:hover
         opacity: 0.4
+
+@media mq-nonmobile
+  #mobile-nav
+    visibility: hidden
