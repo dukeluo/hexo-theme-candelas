@@ -46,11 +46,9 @@
   &:after
     content: "]"
 
-$tag_colors = (#F6672E #009BD4 #9FC53A #FFB200 #8F5A9F #4EC9BE #3A537C)
-
 random(min,max)
   return floor(math(0, 'random')*(max - min + 1) + min)
 
 for i in (1..42)
   .tag-list-item:nth-child({i})
-    background-color: $tag_colors[random(0, 6)]
+    background-color: sidebar-tag-colors[random(0, 6)]

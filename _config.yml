@@ -47,6 +47,7 @@ copyright:
 
 # Profile
 profile:
+  enableBalloon: true
   github: DukeLuo
   email: dukeluo@outlook.com
   rss: /atom.xml

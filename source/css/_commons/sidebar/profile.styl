@@ -56,3 +56,70 @@
 #rss-link
   &:before
     content: "\f09e"
+
+.balloon
+  position: absolute
+  top: -10em
+  left: 10%
+  opacity: 0.7
+  width: 10em
+  height: 10em
+  background: profile-balloon-color-a
+  border-radius: 10em 10em 4em 10em
+  transform: rotate(45deg)
+
+  @keyframes float1
+    0%
+      transform: rotate(40deg) translateY(0)  translateX(0)
+    100%
+      transform: rotate(50deg) translateY(-(profile-height) * 0.8) translateX(-(profile-height) * 0.6)
+
+  @keyframes float2
+    0%
+      transform: rotate(55deg) translateY(0)  translateX(0)
+    100%
+      transform: rotate(45deg) translateY(-(profile-height) * 0.8) translateX(-(profile-height) * 0.6)
+
+  @keyframes float3
+    0%
+      transform: rotate(45deg) translateY(0)  translateX(0)
+    100%
+      transform: rotate(35deg)  translateY(-(profile-height) * 0.6)  translateX(-(profile-height) * 0.8)
+
+  animation: float1 profile-balloon-time infinite profile-balloon-ease-out
+  animation-delay: profile-balloon-time * 0.2
+
+  &:after
+    content: ''
+    position: absolute
+    bottom: -.05em
+    right: -.05em
+    border-top: 0.5em solid transparent
+    border-bottom: 0.5em solid transparent
+    border-right: 0.9em solid profile-balloon-color-a
+    transform: rotate(45deg)
+    border-radius: 1em
+
+
+.holder
+  font-size: profile-balloon-size
+  position: relative
+
+  .balloon
+    &:nth-child(2)
+      left: 50%
+      background: profile-balloon-color-b
+      animation: float2 profile-balloon-time * 0.95 infinite profile-balloon-ease-out
+      animation-delay: profile-balloon-time * 0
+
+      &:after
+        border-right: 0.9em solid profile-balloon-color-b
+
+    &:nth-child(3)
+      left: 90%
+      background: profile-balloon-color-c
+      animation: float3 profile-balloon-time * 1.05 infinite profile-balloon-ease-out
+      animation-delay: profile-balloon-time * 0.4
+
+      &:after
+        border-right: 0.9em solid profile-balloon-color-c
