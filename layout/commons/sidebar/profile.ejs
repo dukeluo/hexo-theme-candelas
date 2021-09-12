@@ -4,11 +4,19 @@
   </h3>
   <div class="widget">
     <div class="profile">
+      <div class="motto">
+        <% if (theme.profile.source){ %>
+          <p class="source"><span><%= theme.profile.source %></span></p>
+        <% } %>
+        <div class="quote">&#10077;</div>
+        <p class="content"><%= theme.profile.metto %></p>
+        <div class="close quote">&#10077;</div>
+      </div>
       <div class="basic">
         <div class="avatar"></div>
         <div class="info">
-          <h2 class="name">DukeLuo</h2>
-          <h3 class="location">Wuhan</h3>
+          <h2 class="name"><%= theme.profile.name %></h2>
+          <h3 class="location"><%= theme.profile.location %></h3>
         </div>
       </div>
       <div class="links">

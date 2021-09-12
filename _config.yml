@@ -48,6 +48,10 @@ copyright:
 # Profile
 profile:
   enableBalloon: true
+  metto: '夫战，勇气也。一鼓作气，再而衰，三而竭。'
+  source: '左传·曹刿论战'
+  name: 'DukeLuo'
+  location: 'Wuhan'
   github: DukeLuo
   email: dukeluo@outlook.com
   rss: /atom.xml
