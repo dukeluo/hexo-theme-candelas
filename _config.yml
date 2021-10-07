@@ -15,8 +15,6 @@ banner:
 excerpt_link: Read More
 fancybox: true
 recent_posts_limits: 5
-
-# Widget behavior
 archive_type: 'monthly'
 
 # Miscellaneous
@@ -28,7 +26,7 @@ fb_app_id:
 
 # Gitalk
 gitalk:
-  on: true
+  enabled: true
   owner: pidan7
   repo: candelas
   admin: ['pidan7']
@@ -39,7 +37,7 @@ gitalk:
 # Like
 like:
   enabled: true
-  gistBase64Token: 'MzhhZjdiZTFlYzhlZDA1NDhiZTI5ZTk1NTc0ZGViOGExOWVlOTIxYw=='
+  gistBase64Token: 'Z2hwX0V5NnU3UjU5UjRiMktFNlJhbDRnR29DbmZzTmJONDBXZkpmSQ=='
 
 # Copyright
 copyright:
@@ -48,8 +46,8 @@ copyright:
 # Profile
 profile:
   enableBalloon: true
-  metto: '夫战，勇气也。一鼓作气，再而衰，三而竭。'
-  source: '左传·曹刿论战'
+  metto: 'Talk is cheap. Show me the code.'
+  source: 'Linus Torvalds'
   name: 'DukeLuo'
   location: 'Wuhan'
   github: DukeLuo

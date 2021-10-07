@@ -4,7 +4,7 @@
   </section>
   <section class="post-main">
     <%- partial('commons/article', {post: page, index: false}) %>
-    <% if (theme.gitalk.on){ %>
+    <% if (theme.gitalk.enabled){ %>
       <%- partial('includes/gitalk') %>
     <% } %>
   </section>
