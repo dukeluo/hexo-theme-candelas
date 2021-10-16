@@ -40,6 +40,21 @@ After the installation, open Hexo config file `_config.yml` and set the theme va
 theme: candelas
 ```
 
+### Upgrade
+
+If your Candelas is installed by `npm`, you can use the following command to upgrade:
+
+```bash
+$ npm install hexo-theme-candelas@latest
+```
+
+Or If you're using Candelas by cloning the entire repository, you can do the following step to get the latest version:
+
+```bash
+$ cd hexo-site/themes/candelas
+$ git pull -r
+```
+
 ### Setup
 If you're using Hexo 5.0 or later, the recommended way is to create a configuration file `_config.candelas.yml` for the Candelas theme under the root of the hexo blog.
 
