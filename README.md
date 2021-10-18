@@ -4,7 +4,7 @@ Candelas is the next generation of the hexo default theme [Landscape](https://gi
 
 Candelas demo site can be found [here](https://candelas.dukeluo.me/), which is built up with [Hexo Theme Unit Test](https://github.com/hexojs/hexo-theme-unit-test) as the source.
 
-![the mockup of Candelas](https://files.dukeluo.me/candelas-mockup/macbookpro15.png)
+![the mockup of Candelas](https://files.dukeluo.me/candelas-mockup/candelas.png)
 ### Features
 
 - add random banner
