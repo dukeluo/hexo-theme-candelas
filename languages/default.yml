@@ -1,21 +1,12 @@
-categories: Categories
-search: Search
-tags: Tags
-tweets: Tweets
-prev: Prev
-next: Next
-comment: Comments
-archive_a: Archives
-archive_b: "Archives: %s"
-page: Page %d
-recent_posts: Recent Posts
-newer: Read This Next
-older: You Might Enjoy
-share: Share
-powered_by: Powered by
+archive: Archive
 category: Category
+search: Search
 tag: Tag
+toc: Contents
 profile: Profile
 github: GitHub
 email: Email
 rss_feed: RSS Feed
+recent_posts: Recent Posts
+newer: Read This Next
+older: You Might Enjoy
