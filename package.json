@@ -30,8 +30,8 @@
   ],
   "devDependencies": {
     "editorconfig-checker": "^4.0.2",
-    "ejs-lint": "^1.0.1",
-    "eslint": "^6.8.0",
+    "ejs-lint": "^1.2.1",
+    "eslint": "^8.0.0",
     "eslint-plugin-html": "^6.0.2",
     "pre-commit": "^1.2.2"
   }
