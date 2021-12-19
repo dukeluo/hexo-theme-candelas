@@ -29,10 +29,10 @@
     "lint"
   ],
   "devDependencies": {
-    "editorconfig-checker": "^4.0.2",
-    "ejs-lint": "^1.2.1",
-    "eslint": "^8.0.0",
-    "eslint-plugin-html": "^6.0.2",
-    "pre-commit": "^1.2.2"
+    "editorconfig-checker": "4.0.2",
+    "ejs-lint": "1.2.1",
+    "eslint": "8.5.0",
+    "eslint-plugin-html": "6.0.2",
+    "pre-commit": "1.2.2"
   }
 }
