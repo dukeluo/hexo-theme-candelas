@@ -20,7 +20,7 @@
   "scripts": {
     "lint:js": "eslint --ext .ejs layout/  --ext .js source/js",
     "lint:ejs": "ejslint layout",
-    "lint:ec": "eclint check languages/ layout/ source/",
+    "lint:ec": "editorconfig-checker --exclude .github",
     "lint": "npm run lint:js & npm run lint:ejs & npm run lint:ec",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
@@ -29,7 +29,7 @@
     "lint"
   ],
   "devDependencies": {
-    "eclint": "^2.8.1",
+    "editorconfig-checker": "^4.0.2",
     "ejs-lint": "^1.0.1",
     "eslint": "^6.8.0",
     "eslint-plugin-html": "^6.0.2",
