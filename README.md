@@ -2,9 +2,9 @@
 
 Candelas is the next generation of the hexo default theme [Landscape](https://github.com/hexojs/hexo-theme-landscape). The goal of this project is to add more features and customization to the Landscape theme.
 
-Candelas demo site can be found [here](https://candelas.dukeluo.me/), which is built up with [Hexo Theme Unit Test](https://github.com/hexojs/hexo-theme-unit-test) as the source.
+Candelas demo site can be found [here](https://candelas.shaiwang.life/), which is built up with [Hexo Theme Unit Test](https://github.com/hexojs/hexo-theme-unit-test) as the source.
 
-![the mockup of Candelas](https://files.dukeluo.me/candelas-mockup/candelas.png)
+![the mockup of Candelas](https://files.shaiwang.life/candelas-mockup/candelas.png)
 ### Features
 
 - add random banner
@@ -65,9 +65,9 @@ The Candelas theme can display a random banner on the home page. You only need t
 
 ```yml
 banner:
-  - 'https://files.dukeluo.me/banner/banner-1.jpg'
-  - 'https://files.dukeluo.me/banner/banner-2.jpg'
-  - 'https://files.dukeluo.me/banner/banner-3.jpg'
+  - 'https://files.shaiwang.life/banner/banner-1.jpg'
+  - 'https://files.shaiwang.life/banner/banner-2.jpg'
+  - 'https://files.shaiwang.life/banner/banner-3.jpg'
 ```
 
 #### Like post widget
