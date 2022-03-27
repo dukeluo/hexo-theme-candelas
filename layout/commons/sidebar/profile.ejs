@@ -23,6 +23,9 @@
         <% if (theme.profile.github){ %>
           <a id="github-link" class="profile-link" href="<%= 'https://github.com/' + (theme.profile.github) %>" title="<%= __('github') %>"></a>
         <% } %>
+        <% if (theme.profile.stackoverflow){ %>
+          <a id="stackoverflow-link" class="profile-link" href="<%= 'https://stackoverflow.com/users/' + (theme.profile.stackoverflow) %>" title="<%= __('stackoverflow') %>"></a>
+        <% } %>
         <% if (theme.profile.email){ %>
           <a id="email-link" class="profile-link" href="<%= 'mailto:' + (theme.profile.email) %>" title="<%= __('email') %>"></a>
         <% } %>

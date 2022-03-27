@@ -99,7 +99,8 @@ profile:
   source: 'Linus Torvalds'
   name: 'DukeLuo'
   location: 'Wuhan'
-  github: DukeLuo
+  github: DukeLuo             # the username of GitHub
+  stackoverflow: 12814009     # the user ID of Stack Overflow
   email: dukeluo@outlook.com
   rss: /atom.xml
 ```
