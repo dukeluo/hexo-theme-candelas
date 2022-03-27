@@ -390,7 +390,7 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-plugin-check-file@^1.1.0:
+eslint-plugin-check-file@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-check-file/-/eslint-plugin-check-file-1.1.0.tgz#0badc657e4e9d92f020ad0a42b34dbdec9704074"
   integrity sha512-OFLBvqFIDVR0F5gI497UhK/swBZRGq9oJLpChfF3wsh+SxmPP5yzkjOS5gQKj2OupiUMpBrPDcq29zH2j873Nw==

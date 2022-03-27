@@ -32,7 +32,7 @@
     "editorconfig-checker": "4.0.2",
     "ejs-lint": "1.2.1",
     "eslint": "8.5.0",
-    "eslint-plugin-check-file": "^1.1.0",
+    "eslint-plugin-check-file": "1.1.0",
     "eslint-plugin-html": "6.0.2",
     "pre-commit": "1.2.2"
   }
