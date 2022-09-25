@@ -390,10 +390,10 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-plugin-check-file@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-check-file/-/eslint-plugin-check-file-1.1.0.tgz#0badc657e4e9d92f020ad0a42b34dbdec9704074"
-  integrity sha512-OFLBvqFIDVR0F5gI497UhK/swBZRGq9oJLpChfF3wsh+SxmPP5yzkjOS5gQKj2OupiUMpBrPDcq29zH2j873Nw==
+eslint-plugin-check-file@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-check-file/-/eslint-plugin-check-file-1.2.3.tgz#42e69f872b9e77e5c7370bcae39d5fad0f5e84c8"
+  integrity sha512-H9EffHjzHdOEzeRUgochi2EsExaugSDkfDbwoLBOrA4EZ3F/AiPIQZOEXdIe1Kh0SP5I+onGVNlvt1U1BWtCNQ==
   dependencies:
     is-glob "^4.0.3"
     micromatch "^4.0.4"
