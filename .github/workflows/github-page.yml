@@ -30,7 +30,7 @@ jobs:
         npx hexo generate
         mv ./public $GITHUB_WORKSPACE
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
